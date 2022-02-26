@@ -16,14 +16,14 @@ import PropTypes from "prop-types";
 export class CategorySection extends React.PureComponent {
   render() {
     const { data, name, bg, navigation } = this.props;
-    const rings = data.filter((ring) => ring.type === "ring");
-    const bracelets = data.filter((bracelet) => bracelet.type === "bracelet");
-    const stones = data.filter((stone) => stone.type === "stone");
+    const rings = data.filter((ring) => ring.type === "Produits Bio");
+    const bracelets = data.filter((bracelet) => bracelet.type === "Produits Bio");
+    const stones = data.filter((stone) => stone.type === "Produits Bio");
     function getItems() {
       const items =
-        name === "Vòng Thạch Anh"
+        name === "Produits Bio"
           ? bracelets
-          : name === "Đá Ruby"
+          : name === "Produits Bio"
           ? stones
           : rings;
       return items;
@@ -51,14 +51,7 @@ export class CategorySection extends React.PureComponent {
             }}
           />
         </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Product")}
-          style={{ marginHorizontal: 10 }}
-        >
-          <BlurView tint="light" intensity={100} style={styles.seeMore}>
-            <CustomText style={styles.seeMoreText}>Xem Thêm</CustomText>
-          </BlurView>
-        </TouchableOpacity>
+       
       </View>
     );
   }

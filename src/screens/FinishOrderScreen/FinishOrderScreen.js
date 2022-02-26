@@ -22,19 +22,18 @@ export const FinishOrderScreen = (props) => {
           />
         </View>
         <CustomText style={styles.title}>
-          Cảm ơn, bạn đã đặt hàng thành công ^^
+         Lorem Ipsum
         </CustomText>
       </View>
       <View style={styles.id}>
         <CustomText style={styles.title}>
-          Chúng tôi sẽ xác nhận đơn hàng của bạn sớm nhất.
+         Lorem Ipsum
         </CustomText>
       </View>
       <View style={styles.buttom}>
         <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
           <CustomText style={{ ...styles.title, color: "#fff" }}>
-            Quay lại trang chủ
-          </CustomText>
+Lorem Ipsum          </CustomText>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

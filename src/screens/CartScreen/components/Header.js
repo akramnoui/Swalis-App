@@ -26,7 +26,7 @@ export const Header = ({ navigation, user, carts }) => {
         />
       </TouchableOpacity>
       <CustomText style={styles.titleHeader}>
-        Giỏ Hàng{" "}
+       Panier{" "}
         {Object.keys(user).length === 0
           ? ""
           : carts.items.length === 0
@@ -65,6 +65,5 @@ const styles = StyleSheet.create({
     color: Colors.lighter_green,
     fontSize: 20,
     paddingBottom: 5,
-    fontFamily: "Roboto-Medium",
   },
 });

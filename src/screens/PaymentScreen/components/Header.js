@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: Colors.lighter_green,
     fontSize: 18,
-    fontFamily: "Roboto-Medium",
   },
   orderStepsContainer: {
     flexDirection: "column",

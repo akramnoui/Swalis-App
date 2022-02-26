@@ -20,7 +20,7 @@ export const FavoriteBody = ({
     <>
       {Object.keys(user).length === 0 ? (
         <View style={styles.center}>
-          <CustomText>{Messages["user.login.require"]}</CustomText>
+          
           <View
             style={{
               borderWidth: 1,
@@ -33,18 +33,13 @@ export const FavoriteBody = ({
             }}
           >
             <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-              <CustomText style={{ color: "#fff" }}>Tiếp tục</CustomText>
+              <CustomText style={{ color: "#fff" }}>Ajouter aux favoris</CustomText>
             </TouchableOpacity>
           </View>
         </View>
       ) : FavoriteProducts.length === 0 ? (
         <View style={styles.center}>
-          <CustomText style={{ fontSize: 16 }}>
-            Không có sản phẩm trong mục yêu thích
-          </CustomText>
-          <CustomText style={{ fontSize: 16 }}>
-            Bắt đầu thêm sản phẩm nào !
-          </CustomText>
+         
         </View>
       ) : (
         <FlatList

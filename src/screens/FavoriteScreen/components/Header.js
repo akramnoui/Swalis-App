@@ -21,7 +21,7 @@ export const Header = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-      <CustomText style={styles.title}> Sản Phẩm Yêu Thích </CustomText>
+      <CustomText style={styles.title}> Favoris </CustomText>
       <View style={{ position: "absolute", bottom: 5, right: 15, zIndex: 10 }}>
         <MaterialCommunityIcons
           style={{ marginBottom: 10 }}
@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: Colors.lighter_green,
     fontSize: 20,
-    fontFamily: "Roboto-Medium",
     paddingBottom: 5,
   },
 });

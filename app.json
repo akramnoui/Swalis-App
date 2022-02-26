@@ -2,6 +2,7 @@
   "expo": {
     "name": "SwalisClient",
     "slug": "SwalisClient",
+    "icon": "./src/assets/Images/logo1.png",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"

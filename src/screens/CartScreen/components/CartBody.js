@@ -28,34 +28,21 @@ export const CartBody = ({
 }) => {
   const dispatch = useDispatch();
   const onRemove = (itemId) => {
-    Alert.alert("Bỏ giỏ hàng", "Bạn có chắc bỏ sản phẩm khỏi giỏ hàng?", [
-      {
-        text: "Hủy",
-      },
-      {
-        text: "Đồng ý",
-        onPress: () => {
-          dispatch(removeFromCart(carts._id, itemId));
-        },
-      },
-    ]);
+   
   };
   return (
     <View style={styles.footer}>
       {Object.keys(user).length === 0 ? (
         <View style={styles.center}>
-          <CustomText>{Messages["user.login.require"]}</CustomText>
           <View style={styles.nextButton}>
             <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-              <CustomText style={{ color: "#fff" }}>Tiếp tục</CustomText>
+              <CustomText style={{ color: "#fff" }}>Ajouter au panier</CustomText>
             </TouchableOpacity>
           </View>
         </View>
       ) : carts.items.length === 0 ? (
         <View style={styles.center}>
-          <CustomText style={{ fontSize: 16 }}>
-            Chưa có sản phẩm nào trong giỏ hàng
-          </CustomText>
+        
         </View>
       ) : (
         <View style={{ marginBottom: 80 }}>

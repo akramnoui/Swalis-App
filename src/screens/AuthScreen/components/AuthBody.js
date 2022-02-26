@@ -21,7 +21,7 @@ export const AuthBody = ({ navigation }) => {
     <>
       <ImageBackground
         style={{ flex: 1, position: "absolute", height, width }}
-        source={require("../../../assets/Images/flower3.jpg")}
+        source={require("../../../assets/Images/bg3.jpg")}
         blurRadius={10}
       ></ImageBackground>
       <View style={{ position: "absolute", top: 100 }}>
@@ -30,13 +30,7 @@ export const AuthBody = ({ navigation }) => {
           source={require("../../../assets/Images/logo1.png")}
         />
       </View>
-      <LottieView
-        source={require("../../../components/IconAnimation/welcome.json")}
-        autoPlay
-        loop
-        resizeMode='contain'
-        style={{ height: 115 }}
-      />
+    
       <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
         <View style={styles.signinContainer}>
           <Text style={styles.text}>LOGIN</Text>
@@ -47,7 +41,7 @@ export const AuthBody = ({ navigation }) => {
           style={[
             styles.signinContainer,
             {
-              backgroundColor: Colors.leave_green,
+              backgroundColor: "#ED0677",
               marginTop: 15,
               borderWidth: 0,
             },
@@ -73,7 +67,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderWidth: 1,
-    borderColor: Colors.leave_green,
+    borderColor: "#ED0677",
   },
   text: {
     fontSize: 20,

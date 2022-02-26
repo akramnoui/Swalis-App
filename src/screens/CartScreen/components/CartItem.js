@@ -26,19 +26,7 @@ export class CartItem extends React.PureComponent {
     const sum = +item.item.price * +item.quantity;
     const checkDesQuantity = async () => {
       if (item.quantity == 1) {
-        Alert.alert(
-          "Xóa giỏ hàng",
-          "Bạn có chắc muốn xóa sản phẩm khỏi giỏ hàng?",
-          [
-            {
-              text: "Hủy",
-            },
-            {
-              text: "Đồng ý",
-              onPress: onRemove,
-            },
-          ]
-        );
+       
       } else {
         await onDes();
       }
@@ -68,7 +56,7 @@ export class CartItem extends React.PureComponent {
             </View>
           </View>
           <CustomText style={{ color: Colors.grey, fontSize: 12 }}>
-            Cung cấp bởi Cát Tường
+            Ajouter des produits au panier
           </CustomText>
           <NumberFormat price={sum.toString()} />
           <View style={styles.box}>

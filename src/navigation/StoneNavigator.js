@@ -216,21 +216,21 @@ export const TabScreen = () => {
         name='HomeTab'
         component={HomeStackScreen}
         options={{
-          tabBarLabel: 'Trang chủ',
+          tabBarLabel: 'Home',
         }}
       />
       <Tab.Screen
         name='Favorite'
         component={FavoriteStackScreen}
         options={() => ({
-          tabBarLabel: 'Yêu thích',
+          tabBarLabel: 'Favorites',
         })}
       />
       <Tab.Screen
         name='Cart'
         component={CartStackScreen}
         options={() => ({
-          tabBarLabel: 'Giỏ hàng',
+          tabBarLabel: 'Cart',
           tabBarBadge: carts.items.length === 0 ? null : carts.items.length,
         })}
       />
@@ -246,19 +246,19 @@ export const DrawerNavigator = () => {
     {
       name: 'HomeTab',
       screen: TabScreen,
-      label: 'Trang Chủ',
+      label: 'Home',
       icon: 'home-outline',
     },
     {
       name: 'Order',
       screen: OrderScreen,
-      label: 'Đơn Hàng',
+      label: 'Order',
       icon: 'receipt',
     },
     {
       name: 'Contact',
       screen: ContactScreen,
-      label: 'Liên Hệ',
+      label: 'Contact',
       icon: 'contacts',
     },
   ];
@@ -283,7 +283,6 @@ export const DrawerNavigator = () => {
                   fontSize: 14,
                   fontWeight: '500',
                   color: focused ? Colors.lighter_green : Colors.grey,
-                  fontFamily: 'Roboto-Medium',
                 }}
               >
                 {label}
@@ -311,10 +310,9 @@ export const DrawerNavigator = () => {
                   fontSize: 14,
                   fontWeight: '500',
                   color: focused ? Colors.lighter_green : Colors.grey,
-                  fontFamily: 'Roboto-Medium',
                 }}
               >
-                Đăng nhập
+                Auth
               </CustomText>
             ),
             drawerIcon: ({ focused }) => (
@@ -338,7 +336,6 @@ export const DrawerNavigator = () => {
                     fontSize: 14,
                     fontWeight: '500',
                     color: focused ? Colors.lighter_green : Colors.grey,
-                    fontFamily: 'Roboto-Medium',
                   }}
                 >
                   Touch/Face ID
@@ -363,10 +360,9 @@ export const DrawerNavigator = () => {
                     fontSize: 14,
                     fontWeight: '500',
                     color: focused ? Colors.lighter_green : Colors.grey,
-                    fontFamily: 'Roboto-Medium',
                   }}
                 >
-                  Thông Tin Cá Nhân
+                  Profile
                 </CustomText>
               ),
               drawerIcon: ({ focused }) => (

@@ -30,22 +30,22 @@ const { width, height } = Dimensions.get("window");
 const validate = (values) => {
   const errors = {};
   if (!values.email) {
-    errors.email = "Email không được bỏ trống";
+    errors.email = "Email wrong";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = "Email không hơp lệ";
   }
   if (!values.password) {
-    errors.password = "Mật khẩu không được bỏ trống";
+    errors.password = "Mật khẩu wrong";
   } else if (values.password.length < 6) {
-    errors.password = "Mật khẩu phải nhiều hơn hoặc bằng 6 ký tự";
+    errors.password = "Lorem Ipsum";
   }
   if (!values.confirmpassword) {
-    errors.confirmpassword = "Mật khẩu không được bỏ trống";
+    errors.confirmpassword = "Mật khẩu wrong";
   } else if (values.confirmpassword !== values.password) {
     errors.confirmpassword = "Mật khẩu xác nhận không trùng khớp";
   }
   if (!values.username) {
-    errors.username = "Tên không được bỏ trống";
+    errors.username = "Tên wrong";
   } else if (values.username.length > 20) {
     errors.username = "Tên không vượt quá 20 ký tự";
   } else if (values.username.length < 6) {
@@ -155,14 +155,14 @@ const Signup = (props) => {
             </View>
 
             <TouchableOpacity
-              onPress={handleSubmit(submit)}
+              onPress={props.navigation.goBack()}
               style={{ marginVertical: 10, alignItems: "center" }}
             >
               <View style={styles.signIn}>
                 {loading ? (
                   <ActivityIndicator size="small" color="#fff" />
                 ) : (
-                  <CustomText style={styles.textSign}>Đăng ký</CustomText>
+                  <CustomText style={styles.textSign}>Hey</CustomText>
                 )}
               </View>
             </TouchableOpacity>
@@ -201,13 +201,11 @@ const styles = StyleSheet.create({
     color: Colors.light_green,
     fontSize: 40,
     letterSpacing: 5,
-    fontFamily: "Roboto-Bold",
     textAlign: "center",
   },
   textSign: {
     fontSize: 15,
     color: "#fff",
-    fontFamily: "Roboto-Medium",
   },
   textSignSmall: {
     color: Colors.lighter_green,

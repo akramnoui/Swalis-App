@@ -23,11 +23,13 @@ export class ProductItem extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = { loading: true };
+    console.log(item.price);
   }
   render() {
     const { navigation, item } = this.props;
     const toDetail = () => {
       navigation.navigate("Detail", { item });
+
     };
     return (
       <View style={{ width: "48%" }}>
@@ -76,7 +78,7 @@ export class ProductItem extends React.PureComponent {
           </View>
           <View style={{ marginHorizontal: 5 }}>
             <TouchableOpacity style={styles.btn} onPress={toDetail}>
-              <CustomText style={styles.detailBtn}>Xem chi tiết</CustomText>
+              <CustomText style={styles.detailBtn}>Details</CustomText>
             </TouchableOpacity>
           </View>
         </BlurView>

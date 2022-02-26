@@ -27,7 +27,7 @@ import { Logout as LogoutAction } from "../reducers";
 import { OpenURL } from "../utils/Tools";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const fbURL = "https://www.facebook.com/daquyankhangthinhvuong/";
+const fbURL = "http://swalis.dz";
 const youtubeURL = "https://www.youtube.com/";
 
 //custom drawer content
@@ -35,13 +35,13 @@ export default (props) => {
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   const Logout = () => {
-    Alert.alert("Đăng Xuất", "Bạn có chắc muốn đăng xuất?", [
+    Alert.alert("", [
       {
-        text: "Hủy",
+        text: "Hey",
         style: "cancel",
       },
       {
-        text: "Đồng ý",
+        text: "Lorem Iposm",
         onPress: () => {
           dispatch(LogoutAction());
           props.navigation.navigate("Home");
@@ -145,11 +145,9 @@ export default (props) => {
                   fontSize: 14,
                   color: Colors.dark,
                   fontWeight: "500",
-                  fontFamily: "Roboto-Medium",
-                }}
+               }}
               >
-                Đăng xuất
-              </CustomText>
+Lorem Ipsum              </CustomText>
             </View>
           )}
         />
@@ -159,7 +157,7 @@ export default (props) => {
         <DrawerItem
           label={() => (
             <CustomText
-              style={{ color: Colors.grey, fontFamily: "Roboto-LightItalic" }}
+              style={{ color: Colors.grey}}
             >
               CatTuong App Version 1.0
             </CustomText>

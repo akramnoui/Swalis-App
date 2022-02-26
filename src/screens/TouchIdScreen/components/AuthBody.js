@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
   error: {
     marginVertical: 10,
     color: "red",
-    fontFamily: "Roboto-Medium",
     fontSize: 15,
   },
   circleImage: {
@@ -123,7 +122,6 @@ const styles = StyleSheet.create({
     width: 100,
   },
   text: {
-    fontFamily: "Roboto-Medium",
     fontSize: 15,
     color: Colors.lighter_green,
   },

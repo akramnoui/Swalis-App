@@ -36,14 +36,14 @@ const { height } = Dimensions.get("window");
 const validate = (values) => {
   const errors = {};
   if (!values.email) {
-    errors.email = "Email không được bỏ trống";
+    errors.email = "Lorem Isum";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Email không hơp lệ";
+    errors.email = "Email error";
   }
   if (!values.password) {
-    errors.password = "Mật khẩu không được bỏ trống";
+    errors.password = "Mot de passe erroné";
   } else if (values.password.length < 6) {
-    errors.password = "Mật khẩu phải nhiều hơn hoặc bằng 6 ký tự";
+    errors.password = "Mot de passe erroné";
   }
   return errors;
 };
@@ -157,7 +157,6 @@ const Login = (props) => {
                 <CustomText
                   style={{
                     ...styles.textSignSmall,
-                    fontFamily: "Roboto-Medium",
                   }}
                 >
                   Forget Password ?
@@ -165,38 +164,20 @@ const Login = (props) => {
               </TouchableOpacity>
             </View>
             <TouchableOpacity
-              onPress={handleSubmit(submit)}
+              onPress={  props.navigation.navigate("HomeTab")}
               style={{ marginVertical: 10, alignItems: "center" }}
             >
               <View style={styles.signIn}>
                 {auth.isLoading ? (
                   <ActivityIndicator size="small" color="#fff" />
                 ) : (
-                  <CustomText style={styles.textSign}>Đăng nhập</CustomText>
+                  <CustomText style={styles.textSign}>Connexion  </CustomText>
                 )}
               </View>
             </TouchableOpacity>
           </View>
         </TouchableWithoutFeedback>
-        <View style={styles.center}>
-          <CustomText style={styles.loginOpt}>
-            Hoặc đăng nhập bằng khuôn mặt/vân tay
-          </CustomText>
-          <View style={styles.circleImage}>
-            <TouchableOpacity
-              onPress={
-                Platform.OS === "android"
-                  ? showAndroidAlert
-                  : scanFingerprintOrFaceId
-              }
-            >
-              <Image
-                source={require("../../../assets/Images/faceid.png")}
-                style={styles.faceid}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
+       
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -221,7 +202,6 @@ const styles = StyleSheet.create({
     color: Colors.light_green,
     fontSize: 40,
     letterSpacing: 5,
-    fontFamily: "Roboto-Bold",
     textAlign: "center",
   },
   text: {
@@ -239,7 +219,6 @@ const styles = StyleSheet.create({
   textSign: {
     fontSize: 15,
     color: "#fff",
-    fontFamily: "Roboto-Medium",
   },
   textSignSmall: {
     color: Colors.lighter_green,
@@ -264,7 +243,6 @@ const styles = StyleSheet.create({
   },
   loginOpt: {
     color: Colors.lighter_green,
-    fontFamily: "Roboto-Medium",
     marginBottom: 10,
   },
 });

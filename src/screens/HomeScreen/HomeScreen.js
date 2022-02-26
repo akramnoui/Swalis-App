@@ -5,11 +5,17 @@ import {
   Dimensions,
   Platform,
   FlatList,
+  FlatGrid,
   AsyncStorage,
+  ScrollView,
+  Image,
+  SafeAreaView,
 } from 'react-native';
 //Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../../reducers';
+import ArticleCard from './ArticleCard';
+import ArticlesList from './ArticlesList';
 //Colors
 import Colors from '../../utils/Colors';
 //Animation
@@ -29,15 +35,103 @@ import { Portal, Provider } from 'react-native-paper';
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 //height
 const { height } = Dimensions.get('window');
+const Products = {}
 
 export const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   //Header Animation
   let scrollY = new Animated.Value(0);
   const user = useSelector((state) => state.auth.user);
-  const products = useSelector((state) => state.store.products);
+ 
   const isLoading = useSelector((state) => state.store.isLoading);
   const notification = useSelector((state) => state.auth.notification);
+
+
+
+const items = [
+  {
+    title: 'Numbers',
+    data: [
+      {
+        uri:
+          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+        title: 'shampoing 1',
+        description: 'Produit cosmetique',
+        occurence: 2,
+        state: 'Broken',
+      },
+      {
+        uri:
+          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+        title: 'shampoing 2',
+        description: 'Produit cosmetique',
+        occurence: 2,
+        state: 'Broken',
+      },
+      {
+        uri:
+          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+        title: 'shampoing 3',
+        description: 'Produit cosmetique',
+        occurence: 2,
+        state: 'Broken',
+      },
+      {
+        uri:
+          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+        title: 'shampoing 3',
+        description: 'Produit cosmetique',
+        occurence: 2,
+        state: 'Broken',
+      },
+      {
+        uri:
+          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+        title: 'shampoing 3',
+        description: 'Produit cosmetique',
+        occurence: 2,
+        state: 'Broken',
+      },
+    ],
+  },
+  {
+    title: 'Cards',
+    data: [
+      {
+        uri:
+          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+        title: 'shampoing 1',
+        description: 'Produit cosmetique',
+        occurence: 2,
+        state: 'Broken',
+      },
+      {
+        uri:
+          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+        title: 'shampoing 2',
+        description: 'Produit cosmetique',
+        occurence: 2,
+        state: 'Broken',
+      },
+      {
+        uri:
+          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+        title: 'shampoing 2',
+        description: 'Produit cosmetique',
+        occurence: 2,
+        state: 'Broken',
+      },
+      {
+        uri:
+          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+        title: 'shampoing 2',
+        description: 'Produit cosmetique',
+        occurence: 2,
+        state: 'Broken',
+      },
+    ],
+  },
+];
   //fetch Api
   useEffect(() => {
     // AsyncStorage.removeItem("isFirstTime");
@@ -63,36 +157,32 @@ export const HomeScreen = ({ navigation }) => {
             products={products}
           ></Header>
           <Portal>
-            <FloatButton />
+         
           </Portal>
-          <AnimatedFlatList
-            contentContainerStyle={styles.list}
-            showsVerticalScrollIndicator={false}
-            ListHeaderComponent={() => (
-              <View style={styles.banner}>
+          <View style={styles.banner}>
                 <Carousel />
               </View>
-            )}
-            scrollEventThrottle={1}
-            onScroll={Animated.event(
-              [
-                {
-                  nativeEvent: { contentOffset: { y: scrollY } },
-                },
-              ],
-              { useNativeDriver: true },
-            )}
-            data={categories}
-            keyExtractor={(item) => item.name}
-            renderItem={({ item }) => (
-              <CategorySection
-                name={item.name}
-                bg={item.bg}
-                data={products}
-                navigation={navigation}
-              />
-            )}
-          />
+              <ScrollView>
+                <FlatGrid
+                  style={styles.gridView}
+                  itemDimension={170}
+                  data={items}
+                  renderItem={({item}) => (
+                    <ArticleCard
+                      info={item}
+                      detail={() =>
+                        this.props.navigation.push('Item', {display: item})
+                      }
+                    />
+                  )}
+                  itemContainerStyle={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                  spacing={15}
+                />
+              </ScrollView>
+        
           {Object.keys(notification).length === 0 ? (
             <View />
           ) : (
