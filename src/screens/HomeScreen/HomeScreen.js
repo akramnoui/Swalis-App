@@ -36,6 +36,91 @@ const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 //height
 const { height } = Dimensions.get('window');
 const Products = {}
+const items = [
+  // {
+  //   title: 'Numbers',
+  //   data: [
+  //     {
+  //       uri:
+  //         'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+  //       title: 'shampoing 1',
+  //       description: 'Produit cosmetique',
+  //       occurence: 2,
+  //       state: 'Broken',
+  //     },
+  //     {
+  //       uri:
+  //         'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+  //       title: 'shampoing 2',
+  //       description: 'Produit cosmetique',
+  //       occurence: 2,
+  //       state: 'Broken',
+  //     },
+  //     {
+  //       uri:
+  //         'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+  //       title: 'shampoing 3',
+  //       description: 'Produit cosmetique',
+  //       occurence: 2,
+  //       state: 'Broken',
+  //     },
+  //     {
+  //       uri:
+  //         'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+  //       title: 'shampoing 3',
+  //       description: 'Produit cosmetique',
+  //       occurence: 2,
+  //       state: 'Broken',
+  //     },
+  //     {
+  //       uri:
+  //         'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+  //       title: 'shampoing 3',
+  //       description: 'Produit cosmetique',
+  //       occurence: 2,
+  //       state: 'Broken',
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: 'Cards',
+  //   data: [
+  //     {
+  //       uri:
+  //         'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+  //       title: 'shampoing 1',
+  //       description: 'Produit cosmetique',
+  //       occurence: 2,
+  //       state: 'Broken',
+  //     },
+  //     {
+  //       uri:
+  //         'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+  //       title: 'shampoing 2',
+  //       description: 'Produit cosmetique',
+  //       occurence: 2,
+  //       state: 'Broken',
+  //     },
+  //     {
+  //       uri:
+  //         'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+  //       title: 'shampoing 2',
+  //       description: 'Produit cosmetique',
+  //       occurence: 2,
+  //       state: 'Broken',
+  //     },
+  //     {
+  //       uri:
+  //         'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+  //       title: 'shampoing 2',
+  //       description: 'Produit cosmetique',
+  //       occurence: 2,
+  //       state: 'Broken',
+  //     },
+  //   ],
+  // },
+];
+
 
 export const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -48,90 +133,7 @@ export const HomeScreen = ({ navigation }) => {
 
 
 
-const items = [
-  {
-    title: 'Numbers',
-    data: [
-      {
-        uri:
-          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-        title: 'shampoing 1',
-        description: 'Produit cosmetique',
-        occurence: 2,
-        state: 'Broken',
-      },
-      {
-        uri:
-          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-        title: 'shampoing 2',
-        description: 'Produit cosmetique',
-        occurence: 2,
-        state: 'Broken',
-      },
-      {
-        uri:
-          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-        title: 'shampoing 3',
-        description: 'Produit cosmetique',
-        occurence: 2,
-        state: 'Broken',
-      },
-      {
-        uri:
-          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-        title: 'shampoing 3',
-        description: 'Produit cosmetique',
-        occurence: 2,
-        state: 'Broken',
-      },
-      {
-        uri:
-          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-        title: 'shampoing 3',
-        description: 'Produit cosmetique',
-        occurence: 2,
-        state: 'Broken',
-      },
-    ],
-  },
-  {
-    title: 'Cards',
-    data: [
-      {
-        uri:
-          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-        title: 'shampoing 1',
-        description: 'Produit cosmetique',
-        occurence: 2,
-        state: 'Broken',
-      },
-      {
-        uri:
-          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-        title: 'shampoing 2',
-        description: 'Produit cosmetique',
-        occurence: 2,
-        state: 'Broken',
-      },
-      {
-        uri:
-          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-        title: 'shampoing 2',
-        description: 'Produit cosmetique',
-        occurence: 2,
-        state: 'Broken',
-      },
-      {
-        uri:
-          'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-        title: 'shampoing 2',
-        description: 'Produit cosmetique',
-        occurence: 2,
-        state: 'Broken',
-      },
-    ],
-  },
-];
+
   //fetch Api
   useEffect(() => {
     // AsyncStorage.removeItem("isFirstTime");
@@ -147,14 +149,14 @@ const items = [
 
   return (
     <Provider>
-      {isLoading ? (
+      {/* {isLoading ? (
         <Skeleton />
       ) : (
         <View style={styles.container}>
           <Header
             scrollPoint={scrollY}
             navigation={navigation}
-            products={products}
+            products={items}
           ></Header>
           <Portal>
          
@@ -196,7 +198,7 @@ const items = [
             />
           )}
         </View>
-      )}
+      )} */}
     </Provider>
   );
 };
