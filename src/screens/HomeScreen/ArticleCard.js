@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import {Image, StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
-export default class ArticleCard extends Component {
-  render() {
+export const  ArticleCard = () =>{
     return (
       <TouchableOpacity style={styles.container} onPress={this.props.detail}>
         <View>
           <Image
-            source={{uri: this.props.info.objectImage}}
+            source={{uri: this.props.info.uri}}
             style={{
               height: '70%',
               resizeMode: 'cover',
@@ -23,17 +22,17 @@ export default class ArticleCard extends Component {
               justifyContent: 'center',
             }}>
             <Text numberOfLines={1} style={styles.title}>
-             {this.props.info.objectName}
+             {this.props.info.title}
             </Text>
             <Text numberOfLines={2} style={styles.description}>
-              {this.props.info.objectState}
+              {this.props.info.state}
             </Text>
           </View>
         </View>
       </TouchableOpacity>
     );
   }
-}
+
 
 const styles = StyleSheet.create({
   container: {
