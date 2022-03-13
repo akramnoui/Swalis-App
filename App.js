@@ -60,6 +60,11 @@ const LoadAssets = async () => {
     require("./src/assets/Images/social3.png"),
     require("./src/assets/Images/creditcards.png"),
     require("./src/assets/Images/faceid.png"),
+    require("./src/assets/Images/1.png"),
+    require("./src/assets/Images/2.png"),
+    require("./src/assets/Images/3.png"),
+    require("./src/assets/Images/4.png"),
+    require("./src/assets/Images/5.png"),
   ]);
   const fetchFonts = Font.loadAsync({
     "Roboto-Bold": require("./src/assets/Fonts/Roboto-Bold.ttf"),

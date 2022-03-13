@@ -19,18 +19,8 @@ import { BlurView } from "expo-blur";
 //PropTypes check
 import PropTypes from "prop-types";
 
-export class ProductItem extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = { loading: true };
-    console.log(item.price);
-  }
-  render() {
-    const { navigation, item } = this.props;
-    const toDetail = () => {
-      navigation.navigate("Detail", { item });
+export const ProductItem = (props) => {
 
-    };
     return (
       <View style={{ width: "48%" }}>
         <BlurView tint='light' intensity={70} style={styles.container}>
@@ -42,42 +32,27 @@ export class ProductItem extends React.PureComponent {
               alignItems: "center",
             }}
           >
-            <TouchableOpacity onPress={toDetail}>
+            <TouchableOpacity onPress={() => {}} style= {styles.imageContainer}>
               <Image
-                source={{ uri: item.url }}
+                source={props.item.uri}
                 style={styles.image}
-                onLoadStart={() => {
-                  this.setState({ loading: true });
-                }}
-                onLoadEnd={() => this.setState({ loading: false })}
+               
               />
             </TouchableOpacity>
-            {this.state.loading && (
-              <View
-                style={{
-                  position: "absolute",
-                  width: "100%",
-                  height: "100%",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <ActivityIndicator size='small' color={Colors.grey} />
-              </View>
-            )}
+        
           </View>
           <View style={styles.center}>
-            <CustomText style={styles.name}>{item.filename}</CustomText>
+            <CustomText style={styles.name}>{props.item.title}</CustomText>
           </View>
           <View style={styles.info}>
             <View style={styles.rate}>
               <AntDesign name='star' color='#fed922' size={15} />
               <Text style={styles.score}>5.0</Text>
             </View>
-            <NumberFormat price={item.price} />
+            <NumberFormat price={props.item.occurence} />
           </View>
           <View style={{ marginHorizontal: 5 }}>
-            <TouchableOpacity style={styles.btn} onPress={toDetail}>
+            <TouchableOpacity style={styles.btn} onPress={() =>{}}>
               <CustomText style={styles.detailBtn}>Details</CustomText>
             </TouchableOpacity>
           </View>
@@ -85,25 +60,29 @@ export class ProductItem extends React.PureComponent {
       </View>
     );
   }
-}
 
-ProductItem.propTypes = {
-  item: PropTypes.object.isRequired,
-  navigation: PropTypes.object.isRequired,
-};
+
+
 
 const styles = StyleSheet.create({
+ imageContainer : {
+   width : '100%' , 
+ backgroundColor : Colors.red
+ } , 
+
   container: {
-    width: "100%",
-    height: 190,
-    // backgroundColor: "rgba(255, 255, 255, 0.9)",
+    backgroundColor : Colors.red , 
+    height: 390,
+     backgroundColor: "rgba(255, 255, 255, 0.9)",
     marginBottom: 15,
     borderRadius: 8,
   },
   image: {
-    width: "100%",
-    borderRadius: 8,
-    aspectRatio: 16 / 9,
+    height: '70%',
+              resizeMode: 'contain',
+              borderTopRightRadius: 4,
+              borderTopLeftRadius: 4,
+
   },
   center: {
     flex: 1,

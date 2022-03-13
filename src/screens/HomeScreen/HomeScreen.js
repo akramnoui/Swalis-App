@@ -13,6 +13,9 @@ import {
   Text,
 } from 'react-native';
 //Redux
+import { ProductItem } from "./components/ProductItem";
+import img1 from   "../../assets/Images/2.png";
+
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../../reducers';
 import ArticlesList from './ArticlesList';
@@ -38,8 +41,7 @@ const { height } = Dimensions.get('window');
 
 const items = [
   {
-    uri:
-      'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+    uri:  require("../../assets/Images/1.png"),
     title: 'Object Name 1',
     description:
       'loob lcccccccccccccccccccccccccccccccccccccccccccccccccccccccccsssssssssoob loob',
@@ -47,8 +49,7 @@ const items = [
     state: 'Broken',
   },
   {
-    uri:
-      'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+    uri:  require("../../assets/Images/2.png") , 
     title: 'Object Name 2',
     description: 'loob loob loob',
     occurence: 2,
@@ -56,7 +57,7 @@ const items = [
   },
   {
     uri:
-      'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+    require("../../assets/Images/4.png"),
     title: 'Object Name 2',
     description: 'loob loob loob',
     occurence: 2,
@@ -64,7 +65,7 @@ const items = [
   },
   {
     uri:
-      'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+    require("../../assets/Images/4.png"),
     title: 'Object Name 2',
     description: 'loob loob loob',
     occurence: 2,
@@ -72,28 +73,13 @@ const items = [
   },
   {
     uri:
-      'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+    require("../../assets/Images/5.png"),
     title: 'Object Name 2',
     description: 'loob loob loob',
     occurence: 2,
     state: 'Broken',
   },
-  {
-    uri:
-      'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-    title: 'Object Name 2',
-    description: 'loob loob loob',
-    occurence: 2,
-    state: 'Broken',
-  },
-  {
-    uri:
-      'https://images.unsplash.com/photo-1521405617584-1d9867aecad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-    title: 'Object Name 2',
-    description: 'loob loob loob',
-    occurence: 2,
-    state: 'Broken',
-  },
+
 ];
 
  const  ArticleCard = (props) =>{
@@ -166,76 +152,56 @@ export const HomeScreen = ({ navigation }) => {
       {isLoading ? (
         <Skeleton />
       ) : (
-        <View style={styles.container}>
+        <View style={styles.container1}>
           <Header
             scrollPoint={scrollY}
             navigation={navigation}
             products={products}
           ></Header>
+             
           <Portal>
             <FloatButton />
           </Portal>
-          <AnimatedFlatList
-            contentContainerStyle={styles.list}
-            showsVerticalScrollIndicator={false}
-            ListHeaderComponent={() => (
-              <View style={styles.banner}>
+          <View style={styles.banner}>
                 <Carousel />
               </View>
-            )}
-            scrollEventThrottle={1}
-            onScroll={Animated.event(
-              [
-                {
-                  nativeEvent: { contentOffset: { y: scrollY } },
-                },
-              ],
-              { useNativeDriver: true },
-            )}
+              <View style={styles.productList}>
+          <FlatList
             data={items}
-            keyExtractor={(item) => item.name}
-            renderItem={({ item }) => (
-              <CategorySection
-                name={item.name}
-                bg={item.bg}
-                data={products}
-                navigation={navigation}
-              />
-            )}
+            keyExtractor={(item) => item.title}
+            numColumns={2}
+            columnWrapperStyle={styles.list}
+            renderItem={({ item }) => {
+              return (
+                <ProductItem
+                  key={item.title}
+                  item={item}
+                  navigation={navigation}
+                />
+              );
+            }}
           />
+        </View>
         </View>
       )}
     </Provider>
   );
 };
-<FlatList
-style={styles.gridView}
-itemDimension={170}
-data={items}
-renderItem={({item}) => (
-  <ArticleCard
-    info={item}
-    detail={() => {}
-      // this.props.navigation.push('Item', {display: item})
-    }
-  />
-)}
-itemContainerStyle={{
-  alignItems: 'center',
-  justifyContent: 'center',
-}}
-spacing={15}
-/>
+
+
 
 const styles = StyleSheet.create({
-  container: {
+  container1: {
     flex: 1,
     backgroundColor: Colors.white,
   },
+  banner : {
+    marginTop: 50 
+  } , 
   list: {
-    width: '100%',
-    marginTop: 50,
-    paddingBottom: 20,
+    flex: 1,
+    backgroundColor : 'white', 
+    
   },
   container: {
     height: 250,
@@ -262,6 +228,51 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'normal',
     flexWrap: 'wrap',
+  },
+  category: {
+    height: 518,
+    marginHorizontal: 5,
+    marginVertical: 5,
+    paddingVertical: 15,
+    borderRadius: 5,
+    overflow: "hidden",
+  },
+  background: {
+    position: "absolute",
+    resizeMode: "stretch",
+    borderRadius: 5,
+    height: 518,
+    width: "100%",
+    bottom: 0,
+  },
+  titleHeader: {
+    marginHorizontal: 10,
+    marginBottom: 5,
+  },
+  title: {
+    fontSize: 18,
+    color: Colors.light_green,
+    fontWeight: "500",
+  },
+  list: {
+    justifyContent: "space-between",
+  },
+  productList: {
+    width: "100%",
+    marginTop: 10,
+    paddingHorizontal: 10,
+  },
+  seeMore: {
+    // backgroundColor: "rgba(255, 255, 255, 0.9)",
+    width: "100%",
+    height: 45,
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  seeMoreText: {
+    fontSize: 14,
+    color: Colors.lighter_green,
   },
   
 });
