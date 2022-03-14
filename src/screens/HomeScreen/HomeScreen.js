@@ -201,6 +201,8 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
     backgroundColor : 'white', 
+    display : 'flex' , 
+    justifyContent: 'space-evenly' ,
     
   },
   container: {

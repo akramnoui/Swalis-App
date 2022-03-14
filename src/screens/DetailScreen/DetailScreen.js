@@ -18,24 +18,21 @@ import { colorCheck } from '../../utils/Tools';
 export const DetailScreen = (props) => {
   const scrollY = new Animated.Value(0);
   const user = useSelector((state) => state.auth.user);
-  const { item } = props.route.params;
+  const item  = props.route.params;
   const [message, setMessage] = useState('');
   const [showSnackbar, setShowSnackbar] = useState(false);
   const [color, setColor] = useState(Colors.lighter_green);
   //color
-  const type = item.color;
   const [modalVisible, setModalVisible] = useState(false);
   //Favorite
   const FavoriteProducts = useSelector((state) =>
-    state.fav.favoriteList.some((product) => product._id === item._id),
+    state.fav.favoriteList.some((product) => product._id === item.title),
   );
   useEffect(() => {
-    const checkColor = async () => {
-      const getColor = await colorCheck(type);
-      setColor(getColor);
-    };
-    checkColor();
-  }, [item]);
+    console.log('hey');
+    console.log(item.title);
+  }
+  );
 
   return (
     <View style={styles.container}>
@@ -44,7 +41,7 @@ export const DetailScreen = (props) => {
       ) : (
         <View />
       )}
-      <Header navigation={props.navigation} scrollY={scrollY} item={item} />
+     <Header navigation={props.navigation} scrollY={scrollY} item={item} />
 
       <Animated.ScrollView
         scrollEventThrottle={1}
@@ -54,7 +51,7 @@ export const DetailScreen = (props) => {
         )}
       >
         <DetailBody item={item} color={color} />
-        <Comments />
+        {/* <Comments /> */}
       </Animated.ScrollView>
       <ActionButton
         item={item}
@@ -65,17 +62,11 @@ export const DetailScreen = (props) => {
         user={user}
         color={color}
       />
-      <ModalComp
-        item={item}
-        color={color}
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-        navigation={props.navigation}
-      />
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff', paddingBottom: 20 },
+  container: { flex: 1, backgroundColor: '#fff', paddingBottom: 20  , paddingTop: 20},
 });

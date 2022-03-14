@@ -14,8 +14,9 @@ import NumberFormat from "../../../components/UI/NumberFormat";
 import PropTypes from "prop-types";
 
 const { width, height } = Dimensions.get("window");
+const color = Colors.black;
 
-export const DetailBody = ({ item, color }) => {
+export const DetailBody = (props) => {
   return (
     <View style={[styles.footer]}>
       <Animatable.View
@@ -24,13 +25,9 @@ export const DetailBody = ({ item, color }) => {
         style={styles.footer_header}
       >
         <CustomText selectable={true} style={{ ...styles.title, color }}>
-          {item.filename}
+         3
         </CustomText>
-        <NumberFormat
-          style={{ color: "#fff", fontSize: 13 }}
-          price={item.price}
-          color={color}
-        />
+      
       </Animatable.View>
       <View style={{ flexDirection: "row", marginTop: 10 }}>
         <Animatable.View animation="bounceIn" delay={1600}>
@@ -63,19 +60,18 @@ export const DetailBody = ({ item, color }) => {
             textDecorationLine: "underline",
           }}
         >
-          Chi tiết
+          Hey you 
         </CustomText>
         <View style={styles.infoContainer}>
-          <CustomText>Màu sắc: </CustomText>
-          <CustomText style={{ color: color }}>{item.color}</CustomText>
+          <CustomText>Out there on your own </CustomText>
         </View>
         <View style={styles.infoContainer}>
-          <CustomText>Tình trạng: </CustomText>
-          <CustomText>{item.standard}</CustomText>
+          <CustomText>see here </CustomText>
+          <CustomText>1</CustomText>
         </View>
         <View style={styles.infoContainer}>
-          <CustomText>Xuất xứ: </CustomText>
-          <CustomText>{item.origin}</CustomText>
+          <CustomText>what you do  </CustomText>
+          <CustomText>2</CustomText>
         </View>
         <CustomText
           style={{
@@ -85,20 +81,17 @@ export const DetailBody = ({ item, color }) => {
             marginBottom: 10,
           }}
         >
-          Miêu tả
+         sure
         </CustomText>
-        <CustomText selectable={true} style={styles.detail}>
-          {item.description}
-        </CustomText>
+        {/* <CustomText selectable={true} style={styles.detail}>
+          {props.item.description}
+        </CustomText> */}
       </Animatable.View>
     </View>
   );
 };
 
-DetailBody.propTypes = {
-  item: PropTypes.object.isRequired,
-  color: PropTypes.string.isRequired,
-};
+
 
 const styles = StyleSheet.create({
   footer: {

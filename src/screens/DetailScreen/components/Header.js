@@ -51,23 +51,23 @@ export const Header = ({ navigation, scrollY, item }) => {
           style={styles.goBackIcon}
         >
           <View>
-            <Ionicons name="ios-arrow-back" size={25} color="#fff" />
+            <Ionicons name="ios-arrow-back" size={25} color="#000" />
           </View>
         </TouchableOpacity>
         <Animated.View style={{ opacity: headerOpacity }}>
           <CustomText
             style={{ fontSize: 16, color: "#fff", fontWeight: "500" }}
           >
-            {item.filename}
+            {item.title}
           </CustomText>
         </Animated.View>
-        <View style={styles.shareIcon}>
+        {/* <View style={styles.shareIcon}>
           <ShareItem
-            imageURL={item.url}
-            title={item.filename}
-            message={item.filename}
+            imageURL={item.uri}
+            title={item.title}
+            message={item.title}
           />
-        </View>
+        </View> */}
       </View>
       <Animated.View
         style={{
@@ -83,11 +83,13 @@ export const Header = ({ navigation, scrollY, item }) => {
         }}
       ></Animated.View>
       <Animated.Image
-        source={{ uri: item.url }}
+        source={item.uri}
         style={[
           styles.image,
           {
+            marginTop: 10 , 
             opacity: imageOpacity,
+            resizeMode: 'contain',
             transform: [{ translateY: headerTranslate }],
           },
         ]}
@@ -115,6 +117,7 @@ const styles = StyleSheet.create({
   },
   goBackIcon: {
     width: 40,
+    color: Colors.black,
   },
   shareIcon: {
     width: 40,
