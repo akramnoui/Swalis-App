@@ -47,6 +47,7 @@ export const cartReducer = (state = initialState, action) => {
     case ADD_CART:
       const id = action.cartItem._id;
       if (cartList.length !== 0) {
+        console.log(action.cartItem.title);
         const index = findIndex(cartList, id);
         if (index >= 0) {
           cartList[index] = new Cart(

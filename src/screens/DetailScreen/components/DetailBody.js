@@ -25,7 +25,7 @@ export const DetailBody = (props) => {
         style={styles.footer_header}
       >
         <CustomText selectable={true} style={{ ...styles.title, color }}>
-         3
+         {props.item.title}
         </CustomText>
       
       </Animatable.View>
@@ -57,35 +57,15 @@ export const DetailBody = (props) => {
             fontWeight: "500",
             marginTop: 20,
             marginBottom: 10,
-            textDecorationLine: "underline",
           }}
         >
-          Hey you 
-        </CustomText>
-        <View style={styles.infoContainer}>
-          <CustomText>Out there on your own </CustomText>
-        </View>
-        <View style={styles.infoContainer}>
-          <CustomText>see here </CustomText>
-          <CustomText>1</CustomText>
-        </View>
-        <View style={styles.infoContainer}>
-          <CustomText>what you do  </CustomText>
-          <CustomText>2</CustomText>
-        </View>
-        <CustomText
-          style={{
-            ...styles.title,
-            textDecorationLine: "underline",
-            fontWeight: "500",
-            marginBottom: 10,
-          }}
-        >
-         sure
-        </CustomText>
-        {/* <CustomText selectable={true} style={styles.detail}>
+          Description
+      </CustomText>
+       
+      
+        <CustomText selectable={true} style={styles.detail}>
           {props.item.description}
-        </CustomText> */}
+        </CustomText>
       </Animatable.View>
     </View>
   );
@@ -108,8 +88,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   title: {
-    fontSize: 17,
     color: Colors.text,
+    fontSize: 24, fontWeight: '700',
   },
   detail: {
     fontSize: 15,

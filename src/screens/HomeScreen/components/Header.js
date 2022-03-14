@@ -42,7 +42,7 @@ export class Header extends React.Component {
   //Search
   searchFilterFunction = (searchText) => {
     const data = this.props.products.filter((product) =>
-      product.filename.toLowerCase().includes(searchText.toLowerCase()),
+      product.title.toLowerCase().includes(searchText.toLowerCase()),
     );
     this.setState({ keyword: searchText, productsFilter: data });
   };
@@ -208,7 +208,8 @@ export class Header extends React.Component {
                 </Animated.View>
                 <TextInput
                   ref='input'
-                  placeholder='Tìm kiếm sản phẩm'
+                  placeholder='Rechercher un produit
+                  '
                   clearButtonMode='always'
                   value={this.state.keyword}
                   onChangeText={(value) => this.searchFilterFunction(value)}
@@ -235,8 +236,8 @@ export class Header extends React.Component {
                   style={styles.image_placeholder}
                 />
                 <Text style={styles.image_placeholder_text}>
-                  Nhập vào từ khóa{'\n'}
-                  để tìm kiếm :D
+                Entrez le mot-clé {'\n'}
+                  pour chercher
                 </Text>
               </View>
             ) : (
@@ -249,7 +250,7 @@ export class Header extends React.Component {
               >
                 {this.state.productsFilter.length === 0 ? (
                   <Text style={styles.image_placeholder_text}>
-                    Không tìm thấy sản phầm
+                      Aucun produit trouvé
                   </Text>
                 ) : (
                   <FlatList

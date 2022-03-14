@@ -32,7 +32,6 @@ export const ActionButton = ({
   setModalVisible,
   setMessage,
 }) => {
-  const dispatch = useDispatch();
   const cartLoading = useSelector((state) => state.cart.isLoading);
   const unmounted = useRef(false);
   useEffect(() => {
@@ -41,41 +40,25 @@ export const ActionButton = ({
     };
   }, []);
   //Set Colors
-  const addToCartAct = async () => {
-    if (Object.keys(user).length === 0) {
-      setMessage(Messages['user.login.require']);
-      setShowSnackbar(true);
-    } else {
-      try {
-        await dispatch(addToCart(item, user.token));
+  const dispatch = useDispatch()
+  const carts = useSelector((state) => state.cart.cartItems);
+
+  const addToCartAct =  () => {
+    console.log('added to here' );
+    console.log(item);
+    dispatch({
+      type: "ADD_CART",
+      cartItem: item,
+    });
+
+   
         setModalVisible(true);
-      } catch (err) {
-        throw err;
-      }
-    }
+    
+    
   };
   const toggleFavorite = () => {
-    if (Object.keys(user).length === 0) {
-      setMessage(Messages['user.login.require']);
-      setShowSnackbar(true);
-    } else if (FavoriteProducts) {
-      Alert.alert(
-        'Bỏ yêu thích',
-        'Bạn có muốn bỏ sản phẩm ra khỏi mục yêu thích?',
-        [
-          {
-            text: 'Hủy',
-            style: 'cancel',
-          },
-          {
-            text: 'Đồng ý',
-            onPress: () => dispatch(removeFavorite(item._id)),
-          },
-        ],
-      );
-    } else {
-      dispatch(addFavorite(item));
-    }
+ 
+      
   };
   return (
     <Animatable.View
@@ -95,7 +78,7 @@ export const ActionButton = ({
               loop={false}
             />
           ) : (
-            <Ionicons name='ios-heart-empty' size={27} color={color} />
+            <Ionicons name='heart' size={27} color={color} />
           )}
         </TouchableOpacity>
         <TouchableOpacity
@@ -105,7 +88,7 @@ export const ActionButton = ({
           {cartLoading ? (
             <ActivityIndicator size='small' color='#fff' />
           ) : (
-            <CustomText style={styles.actionText}>Thêm vào giỏ hàng</CustomText>
+            <CustomText style={styles.actionText}>Add to Cart</CustomText>
           )}
         </TouchableOpacity>
       </View>

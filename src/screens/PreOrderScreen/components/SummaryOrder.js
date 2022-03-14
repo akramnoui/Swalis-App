@@ -16,7 +16,7 @@ export class SummaryOrder extends React.PureComponent {
     return (
       <View style={styles.container}>
         <CustomText style={{ ...styles.title, marginVertical: 5 }}>
-          Tóm tắt đơn hàng
+        Récapitulatif de la commande
         </CustomText>
         <View style={{ backgroundColor: "#fff", paddingHorizontal: 10 }}>
           {cartItems.map((item) => {
@@ -35,7 +35,7 @@ export class SummaryOrder extends React.PureComponent {
               fontWeight: "500",
             }}
           >
-            Thành tiền
+          en argent
           </CustomText>
           <NumberFormat price={total.toString()} />
         </View>

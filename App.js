@@ -6,6 +6,8 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import ReduxThunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { useFonts } from 'expo-font';
+
 //Reducer
 import {
   authReducer,
@@ -74,6 +76,7 @@ const LoadAssets = async () => {
     "Roboto-Medium": require("./src/assets/Fonts/Roboto-Medium.ttf"),
     "Roboto-MediumItalic": require("./src/assets/Fonts/Roboto-MediumItalic.ttf"),
     "Roboto-Regular": require("./src/assets/Fonts/Roboto-Regular.ttf"),
+    "Gotham-Black" : require("./src/assets/Fonts/Gotham-Black.otf"),
   });
 
   return await Promise.all([imageAssets, fetchFonts]);

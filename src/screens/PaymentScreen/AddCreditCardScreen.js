@@ -15,23 +15,9 @@ export const AddCreditCardScreen = ({ navigation }) => {
     // console.log(creditCardInput);
     setSubmitted(true);
     let creditCardToken;
-    try {
-      // Create a credit card token
-      creditCardToken = await getCreditCardToken(creditCardInput);
-      if (creditCardToken.error) {
-        // Reset the state if Stripe responds with an error
-        // Set submitted to false to let the user subscribe again
-        setSubmitted(false);
-        setError(STRIPE_ERROR);
-        return;
-      }
-    } catch (e) {
-      // Reset the state if the request was sent with an error
-      // Set submitted to false to let the user subscribe again
-      setSubmitted(false);
-      setError(STRIPE_ERROR);
-      return;
-    } // Send a request to your server with the received credit card token
+
+      creditCardToken = '1234'
+      
     navigation.navigate("PaymentScreen", { token: creditCardToken });
   };
 

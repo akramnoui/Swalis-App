@@ -11,7 +11,7 @@ export default SearchItem = ({ item, navigation }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Detail", { item })}
+        onPress={() => navigation.navigate("Detail", item )}
         style={{ flexDirection: "row", alignItems: "center" }}
       >
         <Ionicons
@@ -20,8 +20,8 @@ export default SearchItem = ({ item, navigation }) => {
           color={Colors.grey}
           style={{ marginRight: 20 }}
         />
-        <Image style={styles.image} source={{ uri: item.thumb }} />
-        <CustomText style={styles.name}>{item.filename}</CustomText>
+        <Image style={styles.image} source={item.uri} />
+        <CustomText style={styles.name}>{item.title}</CustomText>
       </TouchableOpacity>
     </View>
   );

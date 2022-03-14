@@ -7,6 +7,7 @@ import {
   FlatGrid,
 
   ScrollView,
+  
   Image,
   TouchableOpacity,
 
@@ -15,6 +16,8 @@ import {
 //Redux
 import { ProductItem } from "./components/ProductItem";
 import img1 from   "../../assets/Images/2.png";
+import Category from './components/New/Category';
+
 
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../../reducers';
@@ -44,75 +47,48 @@ const items = [
     uri:  require("../../assets/Images/1.png"),
     title: 'Object Name 1',
     description:
-      'loob lcccccccccccccccccccccccccccccccccccccccccccccccccccccccccsssssssssoob loob',
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
     occurence: 2,
-    state: 'Broken',
+    _id : 1,
+    quantity: 100 ,
   },
   {
     uri:  require("../../assets/Images/2.png") , 
     title: 'Object Name 2',
     description: 'loob loob loob',
     occurence: 2,
-    state: 'Broken',
+    _id : 2,
+    quantity: 1 ,
   },
   {
     uri:
     require("../../assets/Images/4.png"),
-    title: 'Object Name 2',
+    title: 'Object Name 3',
     description: 'loob loob loob',
     occurence: 2,
-    state: 'Broken',
+    _id : 3,
+    quantity: 1 ,
   },
   {
     uri:
     require("../../assets/Images/4.png"),
-    title: 'Object Name 2',
+    title: 'Object Name 4',
     description: 'loob loob loob',
     occurence: 2,
-    state: 'Broken',
+    _id : 4,
+    quantity: 1 ,
   },
   {
     uri:
     require("../../assets/Images/5.png"),
-    title: 'Object Name 2',
+    title: 'Object Name 5',
     description: 'loob loob loob',
     occurence: 2,
-    state: 'Broken',
+    _id : 5,
+    quantity: 1 ,
   },
 
 ];
-
- const  ArticleCard = (props) =>{
-  return (
-    <TouchableOpacity style={styles.container} onPress={props.detail}>
-      <View>
-        <Image
-          source={{uri: props.info.uri}}
-          style={{
-            height: '70%',
-            resizeMode: 'cover',
-            borderTopRightRadius: 4,
-            borderTopLeftRadius: 4,
-          }}
-        />
-        <View
-          style={{
-            paddingHorizontal: 10,
-            paddingVertical: 3,
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}>
-          <Text numberOfLines={1} style={styles.title}>
-           {props.info.title}
-          </Text>
-          <Text numberOfLines={2} style={styles.description}>
-            {props.info.state}
-          </Text>
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
-}
 
 
 
@@ -137,12 +113,7 @@ export const HomeScreen = ({ navigation }) => {
   //fetch Api
   useEffect(() => {
     // AsyncStorage.removeItem("isFirstTime");
-    const fetching = async () => {
-      try {
-        await dispatch(fetchProducts());
-      } catch (err) {
-        alert(err);
-      }
+    const fetching =  () => {
     };
     fetching();
   }, [user.userid]);
@@ -156,17 +127,153 @@ export const HomeScreen = ({ navigation }) => {
           <Header
             scrollPoint={scrollY}
             navigation={navigation}
-            products={products}
+            products={items}
           ></Header>
              
           <Portal>
             <FloatButton />
           </Portal>
-          <View style={styles.banner}>
+          
+         
+
+              <ScrollView
+                        scrollEventThrottle={16}
+                    >
+                       <View style={styles.banner}>
+          <Text style={{ fontSize: 30, fontWeight: '200' , paddingHorizontal: 20  , marginBottom: 10}}>
+                                Bonjour,  Akram !
+                    
+                            </Text>
+                            <Text style={{ fontSize: 38, fontWeight: '700' , paddingHorizontal: 20  , marginBottom: 10}}>
+                                Découvrez nos {'\n'}Produits 
+                            </Text>
                 <Carousel />
               </View>
-              <View style={styles.productList}>
-          <FlatList
+                        <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
+                            <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 20  , marginBottom: 10}}>
+                                A la une : Les Plus Vendus
+                            </Text>
+
+                     
+                              
+                                 
+                                  <FlatList
+                                      data={items}
+                                      keyExtractor={(item) => item.title}
+                                      horizontal= {true}
+                                      contentContainerStyle={{backgroundColor: 'white' , flexDirection: 'row' , alignItems: 'center' , justifyContent: 'center'}}
+                                      renderItem={({ item }) => {
+                                        return (
+                                          <ProductItem
+                                            key={item.title}
+                                            item={item}
+                                            navigation={navigation}
+                                          />
+                                        );
+                                      }}
+                                    /> 
+                        </View>
+                        <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
+                            <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 20  , marginBottom: 10}}>
+                                Produits Capilaires
+                            </Text>
+
+                     
+                              
+                                 
+                                  <FlatList
+                                      data={items}
+                                      keyExtractor={(item) => item.title}
+                                      horizontal= {true}
+                                      contentContainerStyle={{backgroundColor: 'white' , flexDirection: 'row' , alignItems: 'center' , justifyContent: 'center'}}
+                                      renderItem={({ item }) => {
+                                        return (
+                                          <ProductItem
+                                            key={item.title}
+                                            item={item}
+                                            navigation={navigation}
+                                          />
+                                        );
+                                      }}
+                                    /> 
+                        </View>
+                        <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 , paddingBottom: 20}}>
+                            <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 20  , marginBottom: 10}}>
+                               Soins et Beauté
+                            </Text>
+
+                     
+                              
+                                 
+                                  <FlatList
+                                      data={items}
+                                      keyExtractor={(item) => item.title}
+                                      horizontal= {true}
+                                      contentContainerStyle={{backgroundColor: 'white' , flexDirection: 'row' , alignItems: 'center' , justifyContent: 'center'}}
+                                      renderItem={({ item }) => {
+                                        return (
+                                          <ProductItem
+                                            key={item.title}
+                                            item={item}
+                                            navigation={navigation}
+                                          />
+                                        );
+                                      }}
+                                    /> 
+                        </View>
+                        <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 , paddingBottom: 20}}>
+                            <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 20  , marginBottom: 10}}>
+                                Hygiéne
+                            </Text>
+
+                     
+                              
+                                 
+                                  <FlatList
+                                      data={items}
+                                      keyExtractor={(item) => item.title}
+                                      horizontal= {true}
+                                      contentContainerStyle={{backgroundColor: 'white' , flexDirection: 'row' , alignItems: 'center' , justifyContent: 'center'}}
+                                      renderItem={({ item }) => {
+                                        return (
+                                          <ProductItem
+                                            key={item.title}
+                                            item={item}
+                                            navigation={navigation}
+                                          />
+                                        );
+                                      }}
+                                    /> 
+                        </View>
+                        <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 , paddingBottom: 20}}>
+                            <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 20  , marginBottom: 10}}>
+                                En Promotion
+                            </Text>
+
+                     
+                              
+                                 
+                                  <FlatList
+                                      data={items}
+                                      keyExtractor={(item) => item.title}
+                                      horizontal= {true}
+                                      contentContainerStyle={{backgroundColor: 'white' , flexDirection: 'row' , alignItems: 'center' , justifyContent: 'center'}}
+                                      renderItem={({ item }) => {
+                                        return (
+                                          <ProductItem
+                                            key={item.title}
+                                            item={item}
+                                            navigation={navigation}
+                                          />
+                                        );
+                                      }}
+                                    /> 
+                        </View>
+                    </ScrollView>
+
+
+
+          {/* <FlatList
             data={items}
             keyExtractor={(item) => item.title}
             numColumns={2}
@@ -180,8 +287,8 @@ export const HomeScreen = ({ navigation }) => {
                 />
               );
             }}
-          />
-        </View>
+          /> */}
+
         </View>
       )}
     </Provider>
@@ -196,13 +303,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   },
   banner : {
-    marginTop: 50 
+    marginTop: 60 
   } , 
   list: {
     flex: 1,
     backgroundColor : 'white', 
-    display : 'flex' , 
-    justifyContent: 'space-evenly' ,
+    // display : 'flex' , 
+    // justifyContent: 'space-evenly' ,
     
   },
   container: {
@@ -257,6 +364,9 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   list: {
+    flex: 1 , 
+    flexDirection: 'row', 
+    alignItems : 'center' , 
     justifyContent: "space-between",
   },
   productList: {

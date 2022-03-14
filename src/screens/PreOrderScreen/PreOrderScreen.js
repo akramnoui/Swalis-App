@@ -72,7 +72,7 @@ export const PreOrderScreen = (props) => {
           },
         });
       } else {
-        alert("Vui lòng nhập đầy đủ thông tin.");
+        alert("Veuillez entrer les informations complètes.");
       }
     } catch (err) {
       throw err;

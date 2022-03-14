@@ -33,7 +33,8 @@ export const Header = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={styles.orderStepsContainer}>
-          <CustomText style={styles.title}> Phương Thức Thanh Toán </CustomText>
+          <CustomText style={styles.title}> Méthodes de payement
+ </CustomText>
           <View style={styles.orderSteps}>
             <OrderSteps position={2} />
           </View>

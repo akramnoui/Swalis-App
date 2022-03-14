@@ -2,11 +2,11 @@
 const slides = [
   {
     id: 1,
-    lable: "Achetez chanceux",
+    lable: "Swalis",
     subtitle: "Tìm loại đá yêu thích",
     des:
       "Choisir une bague en pierre appropriée apporte de grands avantages dans la carrière, l'amour, l'argent",
-    imageUrl: require("../assets/Images/slide1.png"),
+    imageUrl: require("../assets/Images/bann.jpg"),
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ const slides = [
     subtitle: "Sản phẩm chất lượng",
     des:
       "Giúp  tăng sự tự tin, đầu óc minh mẫn sáng suốt, giải quyết vấn đề cách linh hoạt thông suốt",
-    imageUrl: require("../assets/Images/slide2.png"),
+    imageUrl: require("../assets/Images/banner4.jpeg"),
   },
   {
     id: 3,

@@ -49,24 +49,9 @@ export const PaymentScreen = (props) => {
 
   //action Add Order
   const addOrderAct = async () => {
-    try {
-      token = payByCard ? token : {};
-      await dispatch(
-        addOrder(
-          token,
-          orderItems,
-          name,
-          total,
-          paymentMethod,
-          fullAddress,
-          phone,
-        ),
-      );
-      await dispatch(resetCart(cartId));
+ 
       props.navigation.navigate('FinishOrder');
-    } catch (err) {
-      alert(err);
-    }
+
   };
 
   return (
@@ -89,7 +74,7 @@ export const PaymentScreen = (props) => {
             <View style={styles.orderButton}>
               <TouchableOpacity onPress={addOrderAct}>
                 <CustomText style={{ color: '#fff', fontSize: 16 }}>
-                  Tiến hành đặt hàng
+                Commander
                 </CustomText>
               </TouchableOpacity>
             </View>

@@ -61,7 +61,7 @@ export const Header = ({ navigation, searchFilterFunction, scrollY }) => {
         </View>
         <View style={styles.shareItem}>
           <ShareItem
-            imageURL="https://www.facebook.com/daquyankhangthinhvuong/"
+            imageURL="https://www.facebook.com/SwalisOfficiel/"
             title="Share our facebook page"
             message="Our Facebook Link"
             color="black"
@@ -82,7 +82,7 @@ export const Header = ({ navigation, searchFilterFunction, scrollY }) => {
             style={[{ width: "100%", borderRadius: 5 }]}
           >
             <TextInput
-              placeholder="Tìm kiếm sản phẩm"
+              placeholder="Rechercher un produit"
               placeholderTextColor={Colors.white}
               clearButtonMode="always"
               onChangeText={(text) => searchFilterFunction(text)}

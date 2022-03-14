@@ -22,18 +22,18 @@ export const FinishOrderScreen = (props) => {
           />
         </View>
         <CustomText style={styles.title}>
-         Lorem Ipsum
+         Votre commande a été enregistrée !
         </CustomText>
       </View>
       <View style={styles.id}>
         <CustomText style={styles.title}>
-         Lorem Ipsum
+         ID de la commande : CXDGSJZ 
         </CustomText>
       </View>
       <View style={styles.buttom}>
         <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
           <CustomText style={{ ...styles.title, color: "#fff" }}>
-Lorem Ipsum          </CustomText>
+Home         </CustomText>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

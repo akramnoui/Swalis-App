@@ -8,6 +8,8 @@ import {
   ActivityIndicator,
 } from "react-native";
 //Icon
+import { useDispatch, useSelector } from 'react-redux';
+
 import { AntDesign } from "@expo/vector-icons";
 //Colors
 import Colors from "../../../utils/Colors";
@@ -21,13 +23,25 @@ import PropTypes from "prop-types";
 import { color } from "react-native-reanimated";
 
 export const ProductItem = (props) => {
+  const dispatch = useDispatch()
 
+  const addToCartAct =  () => {
+    dispatch({
+      type: "ADD_CART",
+      cartItem: props.item,
+    });
+  
+   
+    
+    
+  };
     return (
-      <View style={{ width: "46%"  ,   borderRadius: 15,  backgroundColor: Colors.black , margin : 6 }}>
+      <View style={{ width: 180  ,   borderRadius: 12,  backgroundColor: '#EEEEEE' , margin: 15 , paddingBottom: 20}}>
        
           <View
             style={{
               width: "100%",
+              height: "70%" , 
               justifyContent: "center",
               flexDirection: "column",
               alignItems: "center",
@@ -48,10 +62,10 @@ export const ProductItem = (props) => {
          
           <View style={styles.info}>
             <View style={styles.rate}>
-              <AntDesign name='tag' color='#fed922' size={15} />
+              <AntDesign name='tag' color='#fed922' size={20} />
               <Text style={styles.score}>2550 DA</Text>
             </View>
-            <TouchableOpacity style={styles.btn} onPress={ () => {props.navigation.navigate("Detail", { item });}}>
+            <TouchableOpacity style={styles.btn} onPress={addToCartAct}>
             <AntDesign name='plus' color='#FFFFFF' size={20} style={{justifyContent : 'center' , alignItems : 'center'} } />
             </TouchableOpacity>
           </View>
@@ -76,7 +90,6 @@ const styles = StyleSheet.create({
  } , 
 
   container: {
-     backgroundColor: Colors.red ,//"#EEEEEE",
      flex: 1 , 
     borderRadius: 6,
   },
@@ -90,22 +103,24 @@ const styles = StyleSheet.create({
   },
   center: {
     flex: 1,
-    backgroundColor: Colors.black , 
     alignItems: "flex-start",
     justifyContent: "flex-start",
+    paddingLeft: 10 , 
+
   },
   name: {
-    marginTop: 3,
     color: Colors.lighter_green,
+    fontSize: 14, fontWeight: '800' ,
     textAlign: "center",
-    fontWeight: "500",
   },
   info: {
     flexDirection: "row",
+    width: '100%', 
+    height: 70 , 
     alignItems: "center",
-    marginBottom: 5,
-    marginHorizontal: 5,
-    justifyContent: "space-between",
+    justifyContent: 'space-between' , 
+    paddingLeft: 10 , 
+    paddingRight: 15 ,
   },
   rate: {
     flexDirection: "row",
@@ -113,7 +128,7 @@ const styles = StyleSheet.create({
     paddingBottom: 2,
   },
   score: {
-    fontSize: 12,
+    fontSize: 14,
     marginLeft: 5,
     color: Colors.text,
   },
@@ -121,12 +136,11 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     flexDirection: "row",
-    backgroundColor: "#EEEEEE",
-    alignSelf: "flex-end",
+    backgroundColor: "#BEBEBE",
     alignItems: 'center' , 
     justifyContent: "center",
-    marginBottom: 5,
     borderRadius: 8,
+
   },
   detailBtn: {
     color: Colors.lighter_green,

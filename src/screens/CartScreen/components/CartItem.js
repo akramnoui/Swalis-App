@@ -41,14 +41,14 @@ export class CartItem extends React.PureComponent {
               resizeMode: "stretch",
               borderRadius: 5,
             }}
-            source={{ uri: item.item.thumb }}
+            source={ item.item.uri}
           />
         </View>
         <View style={styles.right}>
           <View
             style={{ flexDirection: "row", justifyContent: "space-between" }}
           >
-            <CustomText style={styles.title}>{item.item.filename}</CustomText>
+            <CustomText style={styles.title}>{item.item.title}</CustomText>
             <View>
               <TouchableOpacity onPress={onRemove}>
                 <MaterialCommunityIcons name='close' size={20} color='#000' />

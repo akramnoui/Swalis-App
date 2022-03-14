@@ -10,7 +10,7 @@ export const FloatButton = () => {
   return (
     <FAB.Group
       open={open}
-      icon={open ? 'send' : 'square-edit-outline'}
+      icon={open ? 'send' : 'plus'}
       color='#fff'
       fabStyle={{
         backgroundColor: Colors.blue,
@@ -19,7 +19,7 @@ export const FloatButton = () => {
       actions={[
         {
           icon: 'phone',
-          onPress: () => Linking.openURL('tel:0968729194'),
+          onPress: () => Linking.openURL('tel:+213780336039'),
         },
         {
           icon: 'chat-processing',
@@ -29,7 +29,7 @@ export const FloatButton = () => {
           icon: 'facebook-messenger',
           onPress: () =>
             Linking.openURL(
-              'https://www.messenger.com/t/daquyankhangthinhvuong',
+              'https://www.messenger.com/t/328384651281360',
             ),
         },
       ]}

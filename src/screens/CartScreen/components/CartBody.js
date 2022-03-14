@@ -32,32 +32,24 @@ export const CartBody = ({
   };
   return (
     <View style={styles.footer}>
-      {Object.keys(user).length === 0 ? (
-        <View style={styles.center}>
-          <View style={styles.nextButton}>
-            <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-              <CustomText style={{ color: "#fff" }}>Ajouter au panier</CustomText>
-            </TouchableOpacity>
-          </View>
-        </View>
-      ) : carts.items.length === 0 ? (
-        <View style={styles.center}>
-        
-        </View>
-      ) : (
+    
+  
         <View style={{ marginBottom: 80 }}>
           <FlatList
             data={carts.items}
             onRefresh={loadCarts}
             refreshing={isRefreshing}
-            keyExtractor={(item) => item.item._id}
+            keyExtractor={(item) => item._id}
             renderItem={({ item }) => {
               return (
                 <CartItem
                   item={item}
                   onRemove={() => onRemove(item.item._id)}
                   onAdd={() => {
-                    dispatch(addToCart(item.item, user.token));
+                    dispatch({
+                      type: "ADD_CART",
+                      cartItem: item.item,
+                    });
                   }}
                   onDes={() => {
                     dispatch(decCartQuantity(carts._id, item.item._id));
@@ -67,7 +59,7 @@ export const CartBody = ({
             }}
           />
         </View>
-      )}
+     
     </View>
   );
 };

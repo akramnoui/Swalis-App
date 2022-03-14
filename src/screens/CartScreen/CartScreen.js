@@ -46,18 +46,14 @@ export const CartScreen = (props) => {
         isRefreshing={isRefreshing}
         navigation={props.navigation}
       />
-      {Object.keys(user).length === 0 ? (
-        <></>
-      ) : carts.items.length === 0 ? (
-        <View />
-      ) : (
+     
         <TotalButton
           total={total}
           cartItems={cartItems}
           cartId={cartId}
           navigation={props.navigation}
         />
-      )}
+    
     </View>
   );
 };

@@ -1,5 +1,7 @@
 import { API_URL } from "../../utils/Config";
 import { timeoutPromise } from "../../utils/Tools";
+import { useDispatch } from 'react-redux'
+
 export const CART_LOADING = "CART_LOADING";
 export const CART_FAILURE = "CART_FAILURE";
 export const FETCH_CART = "FETCH_CART";
@@ -56,47 +58,27 @@ export const fetchCart = () => {
   };
 };
 //Add Add to Cart
-export const addToCart = (item) => {
+export const addToCart  = (item) =>  {
   return async (dispatch, getState) => {
-    dispatch({
-      type: CART_LOADING,
-    });
-    const user = getState().auth.user;
-    try {
-      const response = await timeoutPromise(
-        fetch(`${API_URL}/cart/post`, {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "auth-token": user.token,
-          },
-          method: "POST",
-          body: JSON.stringify({
-            userId: user.userid,
-            items: [
-              {
-                item: item._id,
-                quantity: 1,
-              },
-            ],
-          }),
-        })
-      );
-      if (!response.ok) {
-        dispatch({
-          type: CART_FAILURE,
-        });
-        throw new Error("Something went wrong!");
-      }
+     console.log('added to cart');
+
       dispatch({
         type: "ADD_CART",
         cartItem: item,
       });
-    } catch (err) {
-      throw err;
+      console.log('added to cart2');
     }
+    return;
   };
-};
+  // console.log('added to cart');
+  // const dispatch = useDispatch()
+
+  //     dispatch({
+  //       type: "ADD_CART",
+  //       cartItem: item,
+  //     });
+  //     console.log('added to cart2');
+   
 
 //Remove from Cart
 export const removeFromCart = (cartId, itemId) => {

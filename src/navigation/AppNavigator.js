@@ -39,7 +39,7 @@ export const AppNavigator = () => {
 
   useEffect(() => {
     const isFirstTime = async () => {
-      const firstOpen = await AsyncStorage.getItem('isFirstTime');
+      const firstOpen =  true; //await AsyncStorage.getItem('isFirstTime');
       setValue(firstOpen);
     };
     isFirstTime();

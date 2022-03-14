@@ -13,7 +13,8 @@ const { width } = Dimensions.get("window");
 export const PaymentBody = ({ navigation, payByCard, setPayByCard, token }) => {
   return (
     <View style={styles.container}>
-      <CustomText style={styles.title}>Chọn Hình Thức Thanh Toán</CustomText>
+      <CustomText style={styles.title}>Sélectionnez le mode de paiement
+</CustomText>
       <View style={styles.optionContainer}>
         <View style={styles.option}>
           <Checkbox
@@ -29,7 +30,7 @@ export const PaymentBody = ({ navigation, payByCard, setPayByCard, token }) => {
             color={Colors.lighter_green}
             style={{ marginLeft: 10 }}
           />
-          <CustomText style={styles.optionText}>Thanh toán tiền mặt</CustomText>
+          <CustomText style={styles.optionText}>Paiement en espèces</CustomText>
         </View>
         <View style={styles.option}>
           <Checkbox
@@ -46,7 +47,7 @@ export const PaymentBody = ({ navigation, payByCard, setPayByCard, token }) => {
           />
           <View style={styles.cardContainer}>
             <CustomText style={{ ...styles.optionText, marginHorizontal: 0 }}>
-              Thanh toán bằng thẻ tín dụng
+            Payer par carte de crédit
             </CustomText>
             <Image
               style={styles.cardImage}
@@ -55,7 +56,7 @@ export const PaymentBody = ({ navigation, payByCard, setPayByCard, token }) => {
             {payByCard && token ? (
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Entypo name='dots-two-horizontal' size={24} color='black' />
-                <CustomText>{token.card.last4}</CustomText>
+                <CustomText>12283</CustomText>
               </View>
             ) : (
               <></>
