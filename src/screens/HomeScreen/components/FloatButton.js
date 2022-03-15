@@ -10,10 +10,10 @@ export const FloatButton = () => {
   return (
     <FAB.Group
       open={open}
-      icon={open ? 'send' : 'plus'}
+      icon={open ? 'close' : 'comment'}
       color='#fff'
       fabStyle={{
-        backgroundColor: Colors.blue,
+        backgroundColor: '#ED0677',
         bottom: 10,
       }}
       actions={[
@@ -23,13 +23,13 @@ export const FloatButton = () => {
         },
         {
           icon: 'chat-processing',
-          onPress: () => Linking.openURL('https://zalo.me/0359688238'),
+          onPress: () => Linking.openURL('http://swalis.dz/contact/'),
         },
         {
           icon: 'facebook-messenger',
           onPress: () =>
             Linking.openURL(
-              'https://www.messenger.com/t/328384651281360',
+              'https://www.messenger.com/t/SwalisOfficiel  ',
             ),
         },
       ]}

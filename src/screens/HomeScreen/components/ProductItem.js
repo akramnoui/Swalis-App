@@ -62,7 +62,7 @@ export const ProductItem = (props) => {
          
           <View style={styles.info}>
             <View style={styles.rate}>
-              <AntDesign name='tag' color='#fed922' size={20} />
+              <AntDesign name='tag' color={Colors.lighter_green} size={20} />
               <Text style={styles.score}>2550 DA</Text>
             </View>
             <TouchableOpacity style={styles.btn} onPress={addToCartAct}>
@@ -109,8 +109,8 @@ const styles = StyleSheet.create({
 
   },
   name: {
-    color: Colors.lighter_green,
-    fontSize: 14, fontWeight: '800' ,
+    color: Colors.black,
+    fontSize: 18, fontWeight: '700' ,
     textAlign: "center",
   },
   info: {
@@ -128,7 +128,8 @@ const styles = StyleSheet.create({
     paddingBottom: 2,
   },
   score: {
-    fontSize: 14,
+    fontSize: 17,
+    fontWeight: '700' ,
     marginLeft: 5,
     color: Colors.text,
   },

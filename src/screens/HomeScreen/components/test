@@ -1,0 +1,2 @@
+
+docker cp target/processing-1.jar hadoop-master:/root/

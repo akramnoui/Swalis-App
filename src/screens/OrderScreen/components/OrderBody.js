@@ -13,19 +13,7 @@ export class OrderBody extends React.PureComponent {
     const { navigation, user, orders, loadOrders, isRefreshing } = this.props;
     return (
       <View style={styles.footer}>
-        {Object.keys(user).length === 0 ? (
-          <View style={styles.center}>
-            <CustomText style={{ fontSize: 16 }}>
-              {Messages["user.login.require"]}
-            </CustomText>
-            <View style={styles.button}>
-              <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-                <CustomText style={{ fontSize: 16, color: "#fff" }}>
-                </CustomText>
-              </TouchableOpacity>
-            </View>
-          </View>
-        ) : orders.length === 0 ? (
+        { orders.length === 0 ? (
           <View style={styles.center}>
             <CustomText style={{ fontSize: 16 }}>
             Vous n'avez pas de commandes !

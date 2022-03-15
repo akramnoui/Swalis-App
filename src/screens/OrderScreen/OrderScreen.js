@@ -24,6 +24,7 @@ export const OrderScreen = ({ navigation }) => {
     setIsRefreshing(false);
   }, [dispatch, setIsRefreshing]);
   useEffect(() => {
+    console.log(orders);
     loadOrders();
   }, [user.userid]);
 

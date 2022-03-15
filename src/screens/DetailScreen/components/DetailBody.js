@@ -54,7 +54,8 @@ export const DetailBody = (props) => {
         <CustomText
           style={{
             ...styles.title,
-            fontWeight: "500",
+            fontSize: "34" , 
+            fontWeight: "200",
             marginTop: 20,
             marginBottom: 10,
           }}
@@ -76,11 +77,11 @@ export const DetailBody = (props) => {
 const styles = StyleSheet.create({
   footer: {
     width,
-    backgroundColor: "#fff",
+    backgroundColor: "#EEE",
     paddingHorizontal: 20,
     paddingVertical: 20,
     marginBottom: 10,
-    marginTop: 200,
+    marginTop: 250,
     borderRadius: 30,
   },
   footer_header: {
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.text,
-    fontSize: 24, fontWeight: '700',
+    fontSize: 32, fontWeight: '600',
   },
   detail: {
     fontSize: 15,

@@ -67,20 +67,9 @@ export const ActionButton = ({
       style={styles.actionContainer}
     >
       <View style={styles.action}>
-        <TouchableOpacity
-          onPress={toggleFavorite}
-          style={[styles.favorite, { borderColor: color }]}
-        >
-          {FavoriteProducts ? (
-            <LottieView
-              source={require('../../../components/IconAnimation/heart.json')}
-              autoPlay={FavoriteProducts}
-              loop={false}
-            />
-          ) : (
-            <Ionicons name='heart' size={27} color={color} />
-          )}
-        </TouchableOpacity>
+     
+          
+
         <TouchableOpacity
           style={[styles.addCart, { backgroundColor: color }]}
           onPress={addToCartAct}
@@ -110,9 +99,9 @@ const styles = StyleSheet.create({
   action: {
     flexDirection: 'row',
     height: 60,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    paddingBottom: 50 , 
     backgroundColor: '#fff',
   },
   addCart: {
@@ -120,7 +109,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 5,
+    borderRadius: 20,
     height: 50,
   },
   favorite: {
