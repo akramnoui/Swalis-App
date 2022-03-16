@@ -1,8 +1,7 @@
 import React , {useState , useEffect} from "react";
-import { View, StyleSheet , TextInput , Text  } from "react-native";
+import { View, StyleSheet , TextInput , Text , TouchableOpacity   } from "react-native";
 import { Field, reduxForm } from 'redux-form';
 import renderField from '../../PreOrderScreen/components/RenderField';
-import {Dropdown} from 'react-native-material-dropdown';
 
 
 //Text
@@ -16,7 +15,7 @@ const validate = (values) => {
 };
 
  
-export const ContactBody = ({ getReceiver, checkValidation }) => {
+export const ContactBody = (props) => {
 
 
   const states = [
@@ -32,60 +31,76 @@ export const ContactBody = ({ getReceiver, checkValidation }) => {
   ];
   const [text, onChangeText] = React.useState("Useless Text");
   const [number, onChangeNumber] = React.useState(null);
+  const [email, onChangemail] = React.useState(null);
+  const [name, onChangename] = React.useState(null);
+  const [desc, onChangedesc] = React.useState(null);
+
+
+
+
+
 
   return (
     <View style={styles.footer}>
-   
-      {/* <Text style={styles.placeholder}> Akram Noui </Text>
+      <Text style={styles.title}> Homologuer un Produit  </Text>
+
+      <Text style={styles.placeholder}> Nom de l'entreprise  </Text>
       <TextInput
         style ={styles.inputMulti}
         onChangeText={onChangeNumber}
         value={number}
-        placeholder="useless placeholder"
-        keyboardType="numeric"
+        placeholder="Nom de l entreprise"
+        keyboardType="default"
       />
-            <Text style={styles.placeholder}> Akram Noui </Text>
+            <Text style={styles.placeholder}> E-mail </Text>
 
          <TextInput
         style ={styles.inputMulti}
-        onChangeText={onChangeNumber}
-        value={number}
-        placeholder="useless placeholder"
-        keyboardType="numeric"
+        onChangeText={onChangemail}
+        value={email}
+        placeholder="Adresse e-mail"
+        keyboardType="email-address"
       />
-            <Text style={styles.placeholder}> Akram Noui </Text>
+            <Text style={styles.placeholder}> Nom Du Produit </Text>
 
        <TextInput
         style ={styles.inputMulti}
-        onChangeText={onChangeNumber}
-        value={number}
-        placeholder="useless placeholder"
-        keyboardType="numeric"
+        onChangeText={onChangename}
+        value={name}
+        placeholder="Nom du produit"
+        keyboardType="default"
       />
-            <Text style={styles.placeholder}> Akram Noui </Text> */}
+            <Text style={styles.placeholder}> Description </Text>
+            <TextInput
+        style ={styles.inputMulti}
+        onChangeText={onChangedesc}
+        value={desc}
+        placeholder="Description du produit"
+        keyboardType="default"
+      />
+        <TouchableOpacity
+          onPress={() => {
 
-        {/* <Dropdown
-            containerStyle={styles.dropDown}
-            placeholder="State"
-            style={{color:'#5AFFFF'}}
-            data={states}
-            labelTextStyle={{color:'#5AFFFF'}}
-            itemTextStyle={{color:'#5AFFFF'}}
-            baseColor='#5AFFFF'
-            placeholderTextColor='#5AFFFF'
-            overlayStyle={{padding: 10}}
-            dropdownMargins={{ min: 30, max: 30 }}
-            onChangeText={() => {}}
-          />  */}
+            props.navigation.navigate('FinishOrder');
+          }}
+        >
+          <View style={styles.btn}>
+            <CustomText style={{ color: '#fff', fontSize: 16 }}>
+            Soumettre
+            </CustomText>
+          </View>
+        </TouchableOpacity>
+
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 30,  fontWeight: '700',
+    fontSize: 30,  fontWeight: '200',
     textAlign: "center",
-    fontFamily: 'Gotham-Bold'
+    marginBottom: 20 , 
   },
   footer: {
     flex: 1,
@@ -104,7 +119,7 @@ const styles = StyleSheet.create({
     marginTop:10,
     borderRadius: 5,
     padding: 20,
-    color: Colors.white,
+    color: '#000',
     marginVertical: 5,
     backgroundColor: '#EEE',
   },
@@ -122,6 +137,21 @@ const styles = StyleSheet.create({
     paddingBottom:3   
   },
   placeholder : {
-    
+    fontSize: 17 , 
+    fontWeight: "700" , 
+    marginTop: 10 , 
+  } , 
+  btn: {
+    width: '100%',
+    height: 50,
+    backgroundColor: Colors.lighter_green,
+    marginTop: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 22,
+    marginTop: 20,
+
+
+
   }
 });

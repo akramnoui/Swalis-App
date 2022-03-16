@@ -183,6 +183,21 @@ export const HomeStackScreen = () => (
   </HomeStack.Navigator>
 );
 
+const ArtisanStack = createStackNavigator();
+export const ArtisanStackScreen = () => (
+  <ArtisanStack.Navigator
+    screenOptions={{
+      headerShown: false,
+      cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+    }}
+  >
+
+    <ArtisanStack.Screen name='Contact' component={ContactScreen} />
+    <ArtisanStack.Screen name='FinishOrder' component={FinishOrderScreen} />
+ 
+  </ArtisanStack.Navigator>
+);
+
 //Tab
 const Tab = createMaterialBottomTabNavigator();
 
@@ -257,9 +272,9 @@ export const DrawerNavigator = () => {
       icon: 'receipt',
     },
     {
-      name: 'Contact',
+      name: 'Espace Artisan',
       screen: ContactScreen,
-      label: 'Contact',
+      label: 'Espace Artisan',
       icon: 'contacts',
     },
   ];
@@ -303,7 +318,7 @@ export const DrawerNavigator = () => {
       {Object.keys(user).length === 0 ? (
         <Drawer.Screen
           name='SignUp'
-          component={AuthStackScreen}
+          component={ArtisanStackScreen}
           options={() => ({
             title: ({ focused }) => (
               <CustomText

@@ -8,8 +8,8 @@ export const ContactScreen = ({ navigation }) => {
     
     <View style={styles.container}>
       <Header navigation={navigation} />
-
-      <ContactBody />
+      
+      <ContactBody navigation={navigation}/>
     </View>
   );
 };
