@@ -1,9 +1,10 @@
 import React from "react";
 import { View, StyleSheet , ScrollView} from "react-native";
 //Components
-import { Header, ContactBody } from "./components";
+import { Header, ContactBody , Animated } from "./components";
 
 export const ContactScreen = ({ navigation }) => {
+
   return (
     
     <View style={styles.container}>

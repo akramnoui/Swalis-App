@@ -18,7 +18,7 @@ export const Slide = ({ imageUrl }) => {
 };
 const styles = StyleSheet.create({
   container: {
-    marginTop: 45,
+    marginTop: 50,
     flex: 1,
     width,
     alignItems: "center",

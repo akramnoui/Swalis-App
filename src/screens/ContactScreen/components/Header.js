@@ -1,21 +1,28 @@
-import React from "react";
+import React , { useState } from "react";
 import {
   View,
   StyleSheet,
   Image,
   Dimensions,
   TouchableOpacity,
+   Animated,
+  Platform,
+  ActivityIndicator,
 } from "react-native";
 //Color
 import Colors from "../../../utils/Colors";
 //Icon
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 //PropTypes check
 import PropTypes from "prop-types";
 
 const { height } = Dimensions.get("window");
 
-export const Header = ({ navigation }) => {
+
+
+export const Header = ({ navigation, scrollY, item }) => {
+
   return (
     <View style={styles.header}>
       <View style={styles.headerContainer}>
@@ -27,10 +34,19 @@ export const Header = ({ navigation }) => {
           <MaterialCommunityIcons name='menu' size={25} color='#fff' />
         </TouchableOpacity>
       </View>
+      
       <Image
-        style={styles.image}
-        source={require("../../../assets/Images/logoTextWhite.png")}
+        source={require("../../../assets/Images/14.jpg")}
+        style={[
+          styles.image,
+          {
+            marginTop: 10 , 
+            opacity: 0.4,
+            resizeMode: 'contain',
+          },
+        ]}
       />
+    
     </View>
   );
 };
@@ -49,12 +65,12 @@ const styles = StyleSheet.create({
   header: {
     alignItems: "center",
     height: 200,
-    backgroundColor: Colors.lighter_green,
+    backgroundColor: "#000",
     justifyContent: "center",
   },
   image: {
     marginTop: 15,
-    height: 70,
+    height: 250,
     resizeMode: "contain",
   },
 });

@@ -67,6 +67,16 @@ const LoadAssets = async () => {
     require("./src/assets/Images/3.png"),
     require("./src/assets/Images/4.png"),
     require("./src/assets/Images/5.png"),
+    require("./src/assets/Images/6.png"),
+    require("./src/assets/Images/7.png"),
+    require("./src/assets/Images/8.png"),
+    require("./src/assets/Images/9.png"),
+    require("./src/assets/Images/10.png"),
+    require("./src/assets/Images/11.png"),
+    require("./src/assets/Images/12.png"),
+    require("./src/assets/Images/13.png"),
+    require("./src/assets/Images/14.jpg"),
+
   ]);
   const fetchFonts = Font.loadAsync({
     "Roboto-Bold": require("./src/assets/Fonts/Roboto-Bold.ttf"),

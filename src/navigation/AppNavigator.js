@@ -40,7 +40,6 @@ export const AppNavigator = () => {
   useEffect(() => {
     const isFirstTime = async () => {
       const firstOpen =  true; //await AsyncStorage.getItem('isFirstTime');
-      setValue(firstOpen);
     };
     isFirstTime();
     const autoLogout = async () => {
@@ -71,9 +70,10 @@ export const AppNavigator = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <Host>
+      <DrawerNavigator />
         {/* <IntroStackScreen /> */}
-        {(isFirstOpen || value !== null) && <DrawerNavigator />}
-        {!isFirstOpen && value === null && <IntroStackScreen />}
+        {/* {(isFirstOpen || value !== null) && <DrawerNavigator />}
+        {!isFirstOpen && value === null && <IntroStackScreen />} */}
       </Host>
     </NavigationContainer>
   );

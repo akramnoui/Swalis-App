@@ -30,7 +30,7 @@ export const IntroScreen = () => {
   }, []);
   const backgroundColor = scrollX.interpolate({
     inputRange: [0, width, width * 2],
-    outputRange: ["#FFEEEE", "#BEECC4", "#FFE4D9"],
+    outputRange: ["#FFEEEE", "#F9DFDD", "#FFD3E2"],
     extrapolate: "clamp",
   });
   const textTranslate = scrollX.interpolate({
@@ -41,7 +41,6 @@ export const IntroScreen = () => {
 
   const EnterApp = async () => {
      setLoading(true);
-    // await dispatch(CheckFirstTimeAction.firstOpen());
     // if (!unmounted.current) {
     //   setLoading(false);
     // }

@@ -13,8 +13,6 @@ const saveDataToStorage = (name, data) => {
 
 //Check first Open
 export const firstOpen = () => {
-  saveDataToStorage('isFirstTime', 'First Time Open the App');
-  // AsyncStorage.removeItem("isFirstTime");
   return {
     type: 'FIRST_OPEN',
   };

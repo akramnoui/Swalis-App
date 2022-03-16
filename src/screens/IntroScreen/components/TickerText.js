@@ -57,8 +57,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 30,
     lineHeight: TICKER_HEIGHT,
-    textTransform: "uppercase",
     fontWeight: "800",
-    color: "#2CB9B0",
+    color: "#000",
   },
 });

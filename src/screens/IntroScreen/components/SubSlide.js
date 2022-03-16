@@ -14,7 +14,7 @@ export const SubSlide = ({ subtitle, des, last, NextSlide, EnterApp }) => {
         <Text style={styles.des}>{des}</Text>
       </View>
       <TouchableOpacity onPress={onPressHandler}>
-        <View style={[styles.buttonContainer, { backgroundColor: bgColor }]}>
+        <View style={[styles.buttonContainer, { backgroundColor: Colors.lighter_green }]}>
           <Text style={[styles.buttonLabel, { color: labelCover }]}>
             {last ? "Aller à la page d'acceuil" : "Continuer"}
           </Text>

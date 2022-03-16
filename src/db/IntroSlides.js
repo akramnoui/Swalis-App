@@ -2,26 +2,26 @@
 const slides = [
   {
     id: 1,
-    lable: "Swalis",
-    subtitle: "Tìm loại đá yêu thích",
+    lable: "Bienvenue",
+    subtitle: "Le client est notre priorité",
     des:
-      "Choisir une bague en pierre appropriée apporte de grands avantages dans la carrière, l'amour, l'argent",
-    imageUrl: require("../assets/Images/bann.jpg"),
+      "Nous œuvrons chaque jour pour offrir la satisfaction qu’attendent nos consommateurs",
+    imageUrl: require("../assets/Images/10.png"),
   },
   {
     id: 2,
-    lable: "Cầu bình an",
-    subtitle: "Sản phẩm chất lượng",
+    lable: "Notre mission",
+    subtitle: "Notre mission principale",
     des:
-      "Giúp  tăng sự tự tin, đầu óc minh mẫn sáng suốt, giải quyết vấn đề cách linh hoạt thông suốt",
-    imageUrl: require("../assets/Images/banner4.jpeg"),
+      "est de vous offrir les meilleurs produits suivant votre budget. La Qualité reste un facteur essentiel pour asseoir durablement notre positions",
+    imageUrl: require("../assets/Images/7.png"),
   },
   {
     id: 3,
-    lable: "Mang hạnh phúc về",
-    subtitle: "Bạn còn chần chừ gì nữa?",
-    des: "Hãy tìm ngay cho mình sự may mắn, hạnh phúc tại CatTuong ",
-    imageUrl: require("../assets/Images/slide3.png"),
+    lable: "Nos valeurs",
+    subtitle: "Faites nous confiance",
+    des: " Confiance, travail d’équipe, innovation, qualité, prix, Recherche & Développement et performances industrielles ",
+    imageUrl: require("../assets/Images/8.png"),
   },
 ];
 export default slides;

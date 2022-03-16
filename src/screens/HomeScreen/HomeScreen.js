@@ -44,8 +44,8 @@ const { height } = Dimensions.get('window');
 
 const items = [
   {
-    uri:  require("../../assets/Images/1.png"),
-    title: 'Object Name 1',
+    uri:  require("../../assets/Images/10.png"),
+    title: 'Shampoing Protecteur',
     description:
       'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
     occurence: 2,
@@ -53,27 +53,30 @@ const items = [
     quantity: 100 ,
   },
   {
-    uri:  require("../../assets/Images/2.png") , 
-    title: 'Object Name 2',
-    description: 'loob loob loob',
+    uri:  require("../../assets/Images/13.png") , 
+    title: 'Shampoing reparateur',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
     occurence: 2,
     _id : 2,
     quantity: 1 ,
   },
   {
     uri:
-    require("../../assets/Images/4.png"),
-    title: 'Object Name 3',
-    description: 'loob loob loob',
+    require("../../assets/Images/3.png"),
+    title: 'Serum disciplinant',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
     occurence: 2,
     _id : 3,
     quantity: 1 ,
   },
   {
     uri:
-    require("../../assets/Images/4.png"),
-    title: 'Object Name 4',
-    description: 'loob loob loob',
+    require("../../assets/Images/6.png"),
+    title: 'Gel douche grenade',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
     occurence: 2,
     _id : 4,
     quantity: 1 ,
@@ -81,14 +84,178 @@ const items = [
   {
     uri:
     require("../../assets/Images/5.png"),
-    title: 'Object Name 5',
-    description: 'loob loob loob',
+    title: 'Soin et beauté',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
     occurence: 2,
     _id : 5,
     quantity: 1 ,
   },
 
 ];
+
+
+//--------------------
+const items2 = [
+  {
+    uri:  require("../../assets/Images/6.png"),
+    title: 'Shampoing Protecteur',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 1,
+    quantity: 100 ,
+  },
+  {
+    uri:  require("../../assets/Images/7.png") , 
+    title: 'Shampoing reparateur',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 2,
+    quantity: 1 ,
+  },
+  {
+    uri:
+    require("../../assets/Images/3.png"),
+    title: 'Serum disciplinant',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 3,
+    quantity: 1 ,
+  },
+  {
+    uri:
+    require("../../assets/Images/6.png"),
+    title: 'Gel douche grenade',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 4,
+    quantity: 1 ,
+  },
+  {
+    uri:
+    require("../../assets/Images/5.png"),
+    title: 'Soin et beauté',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 5,
+    quantity: 1 ,
+  },
+
+];
+
+//------------------------------
+
+const items3 = [
+  {
+    uri:  require("../../assets/Images/9.png"),
+    title: 'Shampoing Protecteur',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 1,
+    quantity: 100 ,
+  },
+  {
+    uri:  require("../../assets/Images/8.png") , 
+    title: 'Shampoing reparateur',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 2,
+    quantity: 1 ,
+  },
+  {
+    uri:
+    require("../../assets/Images/3.png"),
+    title: 'Serum disciplinant',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 3,
+    quantity: 1 ,
+  },
+  {
+    uri:
+    require("../../assets/Images/6.png"),
+    title: 'Gel douche grenade',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 4,
+    quantity: 1 ,
+  },
+  {
+    uri:
+    require("../../assets/Images/5.png"),
+    title: 'Soin et beauté',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 5,
+    quantity: 1 ,
+  },
+
+];
+
+//-------------------------------------------
+const items4 = [
+  {
+    uri:  require("../../assets/Images/3.png"),
+    title: 'Shampoo Miel',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 1,
+    quantity: 100 ,
+  },
+  {
+    uri:  require("../../assets/Images/1.png") , 
+    title: 'Shampoo Citrus',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 2,
+    quantity: 1 ,
+  },
+  {
+    uri:
+    require("../../assets/Images/3.png"),
+    title: 'After shampoo',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 3,
+    quantity: 1 ,
+  },
+  {
+    uri:
+    require("../../assets/Images/6.png"),
+    title: 'Gel douche',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 4,
+    quantity: 1 ,
+  },
+  {
+    uri:
+    require("../../assets/Images/5.png"),
+    title: 'Soin et beauté',
+    description:
+      'Huile de figue de Barbarie est obtenue à partir des pépins du figuier de Barbarie, elle est une bénédiction pour la peau car elle est riche en vitamine E et oméga 6.Grâce à son fort pouvoir antioxydant',
+    occurence: 2,
+    _id : 5,
+    quantity: 1 ,
+  },
+
+];
+
+//-------------------------------------------
 
 
 
@@ -151,7 +318,7 @@ export const HomeScreen = ({ navigation }) => {
               </View>
                         <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
                             <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 20  , marginBottom: 10}}>
-                                A la une : Les Plus Vendus
+                            À la une : Les plus vendus
                             </Text>
 
                      
@@ -182,7 +349,7 @@ export const HomeScreen = ({ navigation }) => {
                               
                                  
                                   <FlatList
-                                      data={items}
+                                      data={items4}
                                       keyExtractor={(item) => item.title}
                                       horizontal= {true}
                                       contentContainerStyle={{backgroundColor: 'white' , flexDirection: 'row' , alignItems: 'center' , justifyContent: 'center'}}
@@ -206,7 +373,7 @@ export const HomeScreen = ({ navigation }) => {
                               
                                  
                                   <FlatList
-                                      data={items}
+                                      data={items2}
                                       keyExtractor={(item) => item.title}
                                       horizontal= {true}
                                       contentContainerStyle={{backgroundColor: 'white' , flexDirection: 'row' , alignItems: 'center' , justifyContent: 'center'}}
@@ -230,7 +397,7 @@ export const HomeScreen = ({ navigation }) => {
                               
                                  
                                   <FlatList
-                                      data={items}
+                                      data={items3}
                                       keyExtractor={(item) => item.title}
                                       horizontal= {true}
                                       contentContainerStyle={{backgroundColor: 'white' , flexDirection: 'row' , alignItems: 'center' , justifyContent: 'center'}}
@@ -254,7 +421,7 @@ export const HomeScreen = ({ navigation }) => {
                               
                                  
                                   <FlatList
-                                      data={items}
+                                      data={items4}
                                       keyExtractor={(item) => item.title}
                                       horizontal= {true}
                                       contentContainerStyle={{backgroundColor: 'white' , flexDirection: 'row' , alignItems: 'center' , justifyContent: 'center'}}
