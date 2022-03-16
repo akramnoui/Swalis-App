@@ -63,38 +63,21 @@ export const addOrder = (
     });
     const user = getState().auth.user;
     try {
-      const response = await timeoutPromise(
-        fetch(`${API_URL}/order/post`, {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "auth-token": user.token,
-          },
-          method: "POST",
-          body: JSON.stringify({
-            token,
-            orderInfo: {
-              userId: user.userid,
-              items: orderItems,
-              name,
-              totalAmount,
-              paymentMethod,
-              address: fullAddress,
-              phone,
-            },
-          }),
-        })
-      );
-      if (!response.ok) {
-        dispatch({
-          type: ORDER_FAILURE,
-        });
-        throw new Error("Something went wrong!");
-      }
-      const resData = await response.json();
+    
+      const resData =  {
+        userId: user.userid,
+        items: orderItems,
+        name,
+        totalAmount,
+        paymentMethod,
+        address: fullAddress,
+        phone,
+      };
+      console.log('In reducer');
+      console.log(resData);
       dispatch({
         type: ADD_ORDER,
-        orderItem: resData.content,
+        orderItem: resData,
       });
     } catch (err) {
       throw error;

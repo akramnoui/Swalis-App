@@ -7,9 +7,12 @@ import PropTypes from "prop-types";
 import CustomText from "../../../components/UI/CustomText";
 
 class PreOrderItem extends React.PureComponent {
+  componentDidMount(){
+    console.log('here' , this.props.item.item)
+  }
   render() {
     const { item } = this.props;
-    const total = +item.quantity * +item.item.occurence;
+    const total = 0 //+item.quantity * +item.item.occurence;
     return (
       <View style={styles.container}>
         <View style={styles.left}>
@@ -31,7 +34,7 @@ class PreOrderItem extends React.PureComponent {
             value={total.toString()}
             displayType={"text"}
             thousandSeparator={true}
-            suffix={" đ"}
+            suffix={" DA"}
             renderText={(formattedValue) => (
               <View style={styles.priceContainer}>
                 <CustomText style={{ fontSize: 13, padding: 0 }}>
@@ -53,7 +56,7 @@ PreOrderItem.propTypes = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: 100 , 
     borderBottomWidth: 1,
     borderBottomColor: Colors.light_grey,
     backgroundColor: "#fff",

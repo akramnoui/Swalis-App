@@ -52,7 +52,7 @@ export const PreOrderScreen = (props) => {
   };
   let orderItems = [];
   cartItems.map((item) => {
-    orderItems.push({ item: item.item._id, quantity: item.quantity });
+    orderItems.push({ item: item.item, quantity: item.quantity });
   });
 
   const fullAddress = `${address}, ${town} ,${province}`;

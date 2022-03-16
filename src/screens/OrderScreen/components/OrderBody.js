@@ -9,6 +9,7 @@ import OrderItem from "./OrderItem";
 import PropTypes from "prop-types";
 
 export class OrderBody extends React.PureComponent {
+
   render() {
     const { navigation, user, orders, loadOrders, isRefreshing } = this.props;
     return (
@@ -20,21 +21,22 @@ export class OrderBody extends React.PureComponent {
             </CustomText>
           </View>
         ) : (
-          <FlatList
-            data={orders}
-            onRefresh={loadOrders}
-            refreshing={isRefreshing}
-            keyExtractor={(item) => item._id}
-            renderItem={({ item }) => {
-              return <OrderItem order={item} />;
-            }}
-          />
+          <OrderItem order={this.props.orders} />
+        
+          // <FlatList
+          //   data={orders}
+          //   onRefresh={loadOrders}
+          //   refreshing={isRefreshing}
+          //   keyExtractor={(item) => item.address}
+          //   renderItem={({ item }) => {
+          //     return <OrderItem order={item} />;
+          //   }}
+          // />
         )}
       </View>
     );
   }
 }
-
 OrderBody.propTypes = {
   user: PropTypes.object.isRequired,
   orders: PropTypes.array.isRequired,

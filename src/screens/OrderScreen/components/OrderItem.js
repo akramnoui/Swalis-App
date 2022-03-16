@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { View, StyleSheet, TouchableOpacity, FlatList } from "react-native";
+import { View, StyleSheet, TouchableOpacity, FlatList , ScrollView } from "react-native";
 //Colors
 import Colors from "../../../utils/Colors";
-//Item
-import ItemList from "../../PreOrderScreen/components/PreOrderItem";
+import { SummaryOrder2 } from './SummaryOrder2';//Item
+import PreOrderItem from "../../PreOrderScreen/components/PreOrderItem";
 //Number format
 import NumberFormat from "../../../components/UI/NumberFormat";
 //Moment
@@ -16,10 +16,10 @@ import Steps from "../../../components/UI/Steps";
 
 moment.locale("vi");
 
-export const OrderItem = ({ order }) => {
+export const OrderItem = ( props ) => {
   const [showDetails, setShowDetails] = useState(false);
   const status = () => {
-    switch (order.status) {
+    switch (props.order.status) {
       case "waiting":
         return 0;
       case "confirmed":
@@ -31,13 +31,16 @@ export const OrderItem = ({ order }) => {
     }
   };
   return (
+    <ScrollView
+    scrollEventThrottle={16}
+>
     <View style={styles.container}>
       <View style={styles.summary}>
         <View style={styles.textContainer}>
           <CustomText style={styles.text}>Code unique :
  </CustomText>
           <CustomText style={styles.detail}>
-            CT-{order._id.substr(order._id.length - 10)}
+            CT-GHXVRMND
           </CustomText>
         </View>
 
@@ -45,11 +48,11 @@ export const OrderItem = ({ order }) => {
           <CustomText style={styles.text}>Date de réservation:
 </CustomText>
           <CustomText style={styles.detail}>
-            {moment(order.date).format("Do MMMM  YYYY, hh:mm a ")}
+            18/03/2021
           </CustomText>
         </View>
         <View style={styles.detailButtom}>
-          <TouchableOpacity onPress={() => setShowDetails((prev) => !prev)}>
+          <TouchableOpacity onPress={() => {console.log('in OrderItem') ; console.log( props.order ) ; setShowDetails((prev) => !prev)  }}>
             <CustomText style={{ fontSize: 15, color: "#fff" }}>
               {showDetails ? "Masquer la commande" : "Détails de la commande"}
             </CustomText>
@@ -60,18 +63,18 @@ export const OrderItem = ({ order }) => {
             <View style={styles.textContainer}>
               <CustomText style={styles.text}>Nom du destinataire:
  </CustomText>
-              <CustomText style={styles.detail}>{order.name}</CustomText>
+              <CustomText style={styles.detail}>{props.order.name}</CustomText>
             </View>
 
             <View style={styles.textContainer}>
               <CustomText style={styles.text}>Adresse:
  </CustomText>
-              <CustomText style={styles.detail}>{order.address}</CustomText>
+              <CustomText style={styles.detail}>{props.order.address}</CustomText>
             </View>
             <View style={styles.textContainer}>
               <CustomText style={styles.text}>Numéro de téléphone:
 </CustomText>
-              <CustomText style={styles.detail}>{order.phone}</CustomText>
+              <CustomText style={styles.detail}>{props.order.phone}</CustomText>
             </View>
             <View style={styles.textContainer}>
               <CustomText style={styles.text}>
@@ -79,35 +82,39 @@ export const OrderItem = ({ order }) => {
 {" "}
               </CustomText>
               <CustomText style={styles.detail}>
-                {order.paymentMethod}
+                {props.order.paymentMethod}
               </CustomText>
+              
             </View>
             <View style={styles.steps}>
               <Steps position={status()} />
             </View>
 
-            <CustomText style={styles.text}>Produits commandés :
-</CustomText>
-            <FlatList
+            
+      
+            <SummaryOrder2 cartItems={props.order.items} total={'1'} />
+
+           
+
+            {/* <FlatList
               data={order.items}
               keyExtractor={(item) => item.item._id}
               renderItem={({ item }) => {
-                return <ItemList item={item} />;
+                return <PreOrderItem item={item} />;
+               
               }}
-            />
+            /> */}
             <View
               style={{
                 ...styles.textContainer,
-                marginTop: 10,
+                marginTop: 30,
                 justifyContent: "space-between",
               }}
             >
-              <CustomText style={styles.text}>Montant total:
+              <CustomText style={{fontSize: 20 ,fontWeight: '800' ,  color: Colors.lighter_green}}>Montant total
 </CustomText>
-              <NumberFormat
-                price={order.totalAmount.toString()}
-                style={{ fontSize: 15 }}
-              />
+<CustomText style={{fontSize: 20 ,fontWeight: '800' ,  color: Colors.black}}>1800 DA
+</CustomText>
             </View>
           </View>
         ) : (
@@ -115,12 +122,11 @@ export const OrderItem = ({ order }) => {
         )}
       </View>
     </View>
+    </ScrollView>
   );
 };
 
-OrderItem.propTypes = {
-  order: PropTypes.object.isRequired,
-};
+
 
 const styles = StyleSheet.create({
   container: {
@@ -129,9 +135,9 @@ const styles = StyleSheet.create({
     borderColor: Colors.grey,
     backgroundColor: Colors.white,
     borderRadius: 5,
-    paddingVertical: 5,
+    paddingBottom: 60 , 
     paddingHorizontal: 10,
-    marginBottom: 10,
+    marginBottom: 40,
   },
   detailButtom: {
     backgroundColor: Colors.lighter_green,

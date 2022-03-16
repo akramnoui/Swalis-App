@@ -24,7 +24,7 @@ export const Header = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-      <CustomText style={styles.titleHeader}>Recherche de commande
+      <CustomText style={styles.titleHeader}>Mes commandes
 </CustomText>
       <View />
     </View>

@@ -24,7 +24,8 @@ export const OrderScreen = ({ navigation }) => {
     setIsRefreshing(false);
   }, [dispatch, setIsRefreshing]);
   useEffect(() => {
-    console.log(orders);
+    console.log('in OrderScreen')
+    console.log(orders[0]);
     loadOrders();
   }, [user.userid]);
 
@@ -38,7 +39,7 @@ export const OrderScreen = ({ navigation }) => {
       ) : (
         <OrderBody
           user={user}
-          orders={orders}
+          orders={orders[0]}
           isRefreshing={isRefreshing}
           loadOrders={loadOrders}
           navigation={navigation}
