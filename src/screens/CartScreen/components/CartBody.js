@@ -44,7 +44,12 @@ export const CartBody = ({
               return (
                 <CartItem
                   item={item}
-                  onRemove={() => onRemove(item.item._id)}
+                  onRemove={() => {
+                    dispatch({
+                      type: "REMOVE_FROM_CART",
+                      cartItem: item.item,
+                    }) ;
+                  }}
                   onAdd={() => {
                     dispatch({
                       type: "ADD_CART",

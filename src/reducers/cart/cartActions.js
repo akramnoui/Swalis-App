@@ -86,34 +86,12 @@ export const removeFromCart = (cartId, itemId) => {
     dispatch({
       type: CART_LOADING,
     });
-    const user = getState().auth.user;
-    try {
-      const response = await timeoutPromise(
-        fetch(`${API_URL}/cart/cartitem/${cartId}`, {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "auth-token": user.token,
-          },
-          method: "DELETE",
-          body: JSON.stringify({
-            item: itemId,
-          }),
-        })
-      );
-      if (!response.ok) {
-        dispatch({
-          type: CART_FAILURE,
-        });
-        throw new Error("Something went wrong!");
-      }
+   
       dispatch({
         type: "REMOVE_FROM_CART",
         itemId,
       });
-    } catch (err) {
-      throw err;
-    }
+
   };
 };
 //Decrease cart quantity
@@ -122,35 +100,12 @@ export const decCartQuantity = (cartId, itemId) => {
     dispatch({
       type: CART_LOADING,
     });
-    const user = getState().auth.user;
-    try {
-      const response = await timeoutPromise(
-        fetch(`${API_URL}/cart/cartitem/${cartId}`, {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "auth-token": user.token,
-          },
-          method: "PUT",
-          body: JSON.stringify({
-            item: itemId,
-            quantity: "decrease",
-          }),
-        })
-      );
-      if (!response.ok) {
-        dispatch({
-          type: CART_FAILURE,
-        });
-        throw new Error("Something went wrong!");
-      }
+  
       dispatch({
         type: "DES_CART_QUANTITY",
         cartItemId: itemId,
       });
-    } catch (err) {
-      throw err;
-    }
+
   };
 };
 
@@ -161,29 +116,11 @@ export const resetCart = (cartId) => {
       type: CART_LOADING,
     });
     const user = getState().auth.user;
-    try {
-      const response = await timeoutPromise(
-        fetch(`${API_URL}/cart/${cartId}`, {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "auth-token": user.token,
-          },
-          method: "DELETE",
-        })
-      );
-      if (!response.ok) {
-        dispatch({
-          type: CART_FAILURE,
-        });
-        throw new Error("Something went wrong!");
-      }
+  
 
       dispatch({
         type: "RESET_CART",
       });
-    } catch (err) {
-      throw err;
-    }
+
   };
 };

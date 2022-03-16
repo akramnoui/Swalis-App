@@ -16,34 +16,16 @@ export const fetchOrder = () => {
     if (user.userid == undefined) {
       return;
     }
-    try {
-      const response = await timeoutPromise(
-        fetch(`${API_URL}/order`, {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "auth-token": user.token,
-          },
-          method: "GET",
-        })
-      );
-      if (!response.ok) {
-        dispatch({
-          type: ORDER_FAILURE,
-        });
-        throw new Error("Something went wrong! Can't get your order");
-      }
-      const resData = await response.json();
-      const filterUserOrder = resData.content.filter(
-        (userOrder) => userOrder.userId._id === user.userid
-      );
-      dispatch({
-        type: FETCH_ORDER,
-        orderData: filterUserOrder,
-      });
-    } catch (err) {
-      throw err;
-    }
+ 
+    
+      // const resData = await response.json();
+      // const filterUserOrder = resData.content.filter(
+      //   (userOrder) => userOrder.userId._id === user.userid
+      // );
+      // dispatch({
+      //   type: FETCH_ORDER,
+      //   orderData: filterUserOrder,
+      // });
   };
 };
 
@@ -62,7 +44,7 @@ export const addOrder = (
       type: ORDER_LOADING,
     });
     const user = getState().auth.user;
-    try {
+
     
       const resData =  {
         userId: user.userid,
@@ -79,8 +61,5 @@ export const addOrder = (
         type: ADD_ORDER,
         orderItem: resData,
       });
-    } catch (err) {
-      throw error;
-    }
   };
 };

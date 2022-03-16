@@ -39,7 +39,7 @@ export const OrderScreen = ({ navigation }) => {
       ) : (
         <OrderBody
           user={user}
-          orders={orders[0]}
+          orders={orders}
           isRefreshing={isRefreshing}
           loadOrders={loadOrders}
           navigation={navigation}

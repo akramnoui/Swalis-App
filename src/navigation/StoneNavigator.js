@@ -197,7 +197,7 @@ export const TabScreen = () => {
           if (route.name === 'HomeTab') {
             iconName = 'home';
           } else if (route.name === 'Favorite') {
-            iconName = 'hearto';
+            iconName = 'book';
           } else if (route.name === 'Cart') {
             iconName = 'shoppingcart';
           }
@@ -219,19 +219,20 @@ export const TabScreen = () => {
           tabBarLabel: 'Home',
         }}
       />
-      <Tab.Screen
-        name='Favorite'
-        component={FavoriteStackScreen}
-        options={() => ({
-          tabBarLabel: 'Favorites',
-        })}
-      />
+    
       <Tab.Screen
         name='Cart'
         component={CartStackScreen}
         options={() => ({
           tabBarLabel: 'Cart',
           tabBarBadge: carts.items.length === 0 ? null : carts.items.length,
+        })}
+      />
+        <Tab.Screen
+        name='Favorite'
+        component={OrderScreen}
+        options={() => ({
+          tabBarLabel: 'Orders',
         })}
       />
     </Tab.Navigator>

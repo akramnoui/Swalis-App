@@ -46,12 +46,6 @@ export class TotalButton extends React.PureComponent {
     );
   }
 }
-TotalButton.propTypes = {
-  total: PropTypes.number.isRequired,
-  navigation: PropTypes.object.isRequired,
-  cartItems: PropTypes.array.isRequired,
-  cartId: PropTypes.string,
-};
 
 const styles = StyleSheet.create({
   total: {
@@ -65,11 +59,16 @@ const styles = StyleSheet.create({
   btn: {
     width: '100%',
     height: 50,
-    backgroundColor: Colors.red,
+    backgroundColor: Colors.lighter_green,
     marginTop: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 5,
+    borderRadius: 22,
+    marginTop: 5,
+    marginBottom: 20,
+
+
+    
   },
   price: {
     color: 'red',

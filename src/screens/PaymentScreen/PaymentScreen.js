@@ -114,10 +114,10 @@ const styles = StyleSheet.create({
   orderButton: {
     width: '100%',
     height: 50,
-    backgroundColor: Colors.red,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 5,
-    marginBottom: 5,
+    backgroundColor: Colors.lighter_green,
+    alignItems: "center",
+    paddingVertical: 15,
+    borderRadius: 20,
+    marginVertical: 15,
   },
 });

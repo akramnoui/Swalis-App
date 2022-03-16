@@ -28,15 +28,7 @@ export class SummaryOrder extends React.PureComponent {
           })}
         </View>
         <View style={styles.total}>
-          <CustomText
-            style={{
-              fontSize: 15,
-              color: Colors.text,
-              fontWeight: "500",
-            }}
-          >
-          en argent
-          </CustomText>
+          
           <NumberFormat price={total.toString()} />
         </View>
       </View>
@@ -44,10 +36,6 @@ export class SummaryOrder extends React.PureComponent {
   }
 }
 
-SummaryOrder.propTypes = {
-  cartItems: PropTypes.array.isRequired,
-  total: PropTypes.number.isRequired,
-};
 
 const styles = StyleSheet.create({
   container: {

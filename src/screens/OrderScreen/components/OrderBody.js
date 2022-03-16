@@ -21,7 +21,7 @@ export class OrderBody extends React.PureComponent {
             </CustomText>
           </View>
         ) : (
-          <OrderItem order={this.props.orders} />
+          <OrderItem order={this.props.orders[0]} />
         
           // <FlatList
           //   data={orders}

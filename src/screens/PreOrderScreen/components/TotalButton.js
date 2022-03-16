@@ -12,7 +12,8 @@ export const TotalButton = ({ toPayment }) => {
       <TouchableOpacity onPress={toPayment}>
         <View style={styles.buttom}>
           <CustomText style={{ color: '#fff', fontSize: 16 }}>
-          Continuez          </CustomText>
+          Continuez
+          </CustomText>
         </View>
       </TouchableOpacity>
     </View>
@@ -34,10 +35,12 @@ const styles = StyleSheet.create({
   buttom: {
     width: '100%',
     height: 50,
-    backgroundColor: Colors.red,
+    backgroundColor: Colors.lighter_green,
+    marginTop: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 5,
-    marginBottom: 5,
+    borderRadius: 22,
+    marginTop: 5,
+    marginBottom: 10,
   },
 });
