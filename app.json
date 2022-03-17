@@ -1,11 +1,19 @@
 {
   "expo": {
     "name": "SwalisClient",
-    "slug": "SwalisClient",
     "icon": "./src/assets/Images/logo1.png",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ] , 
+
+    "ios": {
+      "bundleIdentifier": "dz.swalis",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "dz.swalis",
+      "versionCode": 1
+    }
   }
 }
